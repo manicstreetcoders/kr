@@ -3,7 +3,10 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('#signup').click (ev) -> 
+  $('#signup_btn').click (ev) -> 
     $('#flash').show()
     alert 'it works'
     ev.preventDefault()
+
+$ ->
+  $('#signup_btn').popover()
