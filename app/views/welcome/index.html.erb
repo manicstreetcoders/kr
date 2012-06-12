@@ -1,15 +1,20 @@
 <div class="hero-unit">
   <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
-  <p>하드디스크에 잠자고 있는 여러분의 리포트를 팔아보세요.
+  <p>하드디스크에서 잠자고 있는 여러분의 리포트를 팔아보세요.
   </p>
   <p><a class="btn btn-primary btn-large">더 알아보기 &raquo;</a></p>
   <br \>
   <br \>
   <form accept-charset="utf-8" action="#" method="post" class="well form-inline">
-  <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 아래에 이메일과 패스워드를 입력해주세요.</p>
+  <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.</p>
     <input type="text" class="input" placeholder="Email">
     <input type="password" class="input" placeholder="Password">
-    <button type="submit" class="btn btn-primary">가입</button>
-    <span id="flash" style="padding:10px">이미 등록된 이메일입니다.</span>
+    <button id="signup" type="submit" class="btn btn-primary">가입</button>
+    <div id="flash">
+     <div class="alert">
+      <button class="close" data-dismiss="alert">x</button>
+      이미 등록된 이메일입니다.
+      </div>
+    </div>
   </form>
 </div> 
