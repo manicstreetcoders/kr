@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function() {
+	setTimeout(updateOne, 1000);
+});
+
+function updateOne () {
+	$('#flash').css({ color: 'red'});
+        $('#flash').fadeOut();
+
+	setTimeout(updateTwo, 1000);
+}
+
+function updateTwo() {
+	$('#flash').css({ color: 'blue'});
+        $('#flash').fadeIn();
+
+	setTimeout(updateOne, 1000);
+}
