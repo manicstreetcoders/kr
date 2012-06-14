@@ -4,7 +4,7 @@
 
 $ ->
   $('#signup_btn').click (ev) -> 
-    $('#flash').show()
+    $('#flash_msg').show()
     alert 'it works'
     ev.preventDefault()
 
