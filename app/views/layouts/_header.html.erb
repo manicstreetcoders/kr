@@ -13,10 +13,17 @@
         </ul>
       </div>
       <div class="nav-collapse pull-right">
-        <ul class="nav">
-          <li style="padding:10px">계정이 있으신가요?</li>
-          <li><%= link_to "로그인", '#' %></li>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="nav">
+            <li><%= link_to "로그아웃", destroy_user_session_path, :method => :delete %></li>
+            <li style="padding:10px"><%= current_user.email %></li>
+          </ul>
+        <% else %>
+          <ul class="nav">
+            <li style="padding:10px">계정이 있으신가요?</li>
+            <li><%= link_to "로그인", new_user_session_path %></li>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>

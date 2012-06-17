@@ -6,7 +6,7 @@ $ ->
   $('#signup_btn').click (ev) -> 
     $('#flash_msg').show()
     alert 'it works'
-    ev.preventDefault()
+#    ev.preventDefault()
 
 $ ->
   $('#signup_btn').popover()
