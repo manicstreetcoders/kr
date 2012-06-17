@@ -50,3 +50,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'devise'
+
+gem 'simple_form'
+
+gem 'authbuttons-rails'

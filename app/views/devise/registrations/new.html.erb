@@ -1,27 +1,32 @@
-<h2>Sign up</h2>
+<div class="hero-unit">
+  <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
+  <p>하드디스크에서 잠자고 있는 여러분의 리포트를 팔아보세요.
+  </p>
+  <p><a class="btn btn-primary btn-large">더 알아보기 &raquo;</a></p>
+  <br \>
+  <br \>
 
-resource
-<%= resource %>
-<br \>
-resource_name
-<%= resource_name %>
-<br \>
-url
-<%= registration_path(resource_name) %>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'well form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.</p>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.email_field :email, :placeholder => "이메일" %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.password_field :password, :placeholder => "패스워드" %>
 
-  <div><%= f.submit "Sign up" %></div>
+<% if false %>
+  <%= f.password_field :password_confirmation, :placeholder => "패스워드" %>
+<% end %>
+
+<% if false %>
+  <%= f.submit "Sign up", :id => 'signup_btn', :class => 'btn btn-primary', :rel => 'popover', :title => '가입' %>
+<% end %>
+
+  <button id="signup_btn" type="submit" name="commit" class="btn btn-primary" rel="popover" title="가입" data-content="이메일과 패스워드만 입력하면 바로 가입할 수 있습니다.">가입</button>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div> 
