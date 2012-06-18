@@ -1,3 +1,12 @@
+
+<% flash.each do |key, msg| %>
+  <div id="<%= key %>">
+    <p style="float:right;"><%= link_to_function 'X', "Effect.Fade('#{key}')" %></p>
+    <p><%= msg %></p>
+  <div class="clear"></div>
+  </div>
+<% end %>
+
 <div class="hero-unit">
   <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
   <p>하드디스크에서 잠자고 있는 여러분의 리포트를 팔아보세요.
@@ -7,6 +16,7 @@
   <br \>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'well form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
+
   <%= devise_error_messages! %>
 
   <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.</p>
@@ -27,6 +37,12 @@
 
 <% end %>
 
+<% if false %>
 <%= render "devise/shared/links" %>
+<% end %>
+
+<%- if controller_name != 'sessions' %>
+  <%= link_to "로그인", new_session_path(resource_name) %><br />
+<% end -%>
 
 </div> 

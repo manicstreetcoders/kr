@@ -1,13 +1,19 @@
 <footer class="footer">
-  <nav>
-    <ul>
+  <nav class="nav pull-left">
+    <ul class="nav">
+      <li style="padding:7px"><%= link_to "홈", "/" %></li>
+      <li style="padding:7px"><%= link_to "더 알아보기", '#' %></li>
+      <li style="padding:7px"><%= link_to "도움말", '#' %></li>
+    </ul>
+  </nav>
+  <nav class="nav pull-right">
+    <ul class="nav">
       <li><%= link_to image_tag("twitter_32.png", :border => 0), "http://twitter.com/koreport", :target => "_blank" %></li>
       <li><%= link_to image_tag("facebook_32.png", :border => 0), "http://facebook.com/koreport", :target => "_blank" %></li>
     </ul>
   </nav>
 
-  페이스북 친구들에게 코리를 널리 알려주세요!
-  <br \>
+<!--
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -20,7 +26,6 @@
 
   <div class="fb-like" data-href="https://www.facebook.com/koreport" data-send="true" data-width="450" data-show-faces="false" data-font="verdana"></div>
 
-<!--
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   </script>
 

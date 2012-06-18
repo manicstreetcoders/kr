@@ -1,6 +1,18 @@
+<% flash.each do |key, msg| %>
+  <div id="<%= key %>">
+    <p style="float:right;"><%= link_to_function 'X', "Effect.Fade('#{key}')" %></p>
+    <p><%= msg %></p>
+  <div class="clear"></div>
+  </div>
+<% end %>
+
 <div class="hero-unit">
-  <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
+  <% if user_signed_in? %>
+    <h2><%= current_user.email %> 님, koReport BETA 에 오신 것을 환영합니다.</h2>
+  <% else %>
+    <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
+  <% end %>
   <p>하드디스크에서 잠자고 있는 여러분의 리포트를 팔아보세요.
   </p>
-  <p><a class="btn btn-primary btn-large">더 알아보기 &raquo;</a></p>
+  <p><a class="btn btn-primary btn-large">리포트 업로드 &raquo;</a></p>
 </div> 
