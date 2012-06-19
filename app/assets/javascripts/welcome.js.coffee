@@ -3,10 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('#signup_btn').click (ev) -> 
-    $('#flash_msg').show()
-    alert 'it works'
-#    ev.preventDefault()
+  $('#signup_btn').popover()
 
 $ ->
-  $('#signup_btn').popover()
+  $('#facebook_btn').click (ev) ->
+    alert '준비중'
+    ev.preventDefault()
+
+$ ->
+  $('#twitter_btn').click (ev) ->
+    alert '준비중'
+    ev.preventDefault()

@@ -1,11 +1,5 @@
 
-<% flash.each do |key, msg| %>
-  <div id="<%= key %>">
-    <p style="float:right;"><%= link_to_function 'X', "Effect.Fade('#{key}')" %></p>
-    <p><%= msg %></p>
-  <div class="clear"></div>
-  </div>
-<% end %>
+<%= render :partial => "layouts/flash", object: flash %>
 
 <div class="hero-unit">
   <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
@@ -19,7 +13,7 @@
 
   <%= devise_error_messages! %>
 
-  <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.</p>
+  <p><small><a title="Enter using facebook account" href="#" id="facebook_btn" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" id="twitter_btn" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.</p>
 
   <%= f.email_field :email, :placeholder => "이메일" %>
 
