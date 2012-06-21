@@ -8,19 +8,28 @@
       </a>
       <a class="brand" href="/">koReport BETA</a>
       <div class="nav-collapse">
-        <ul class="nav" style="padding:10px"> 
+        <ul class="nav" style="padding-top:10px;"> 
           <li>하드디스크에서 잠자는 리포트를 팔아라!<li>
         </ul>
       </div>
       <div class="nav-collapse pull-right">
         <% if user_signed_in? %>
           <ul class="nav">
-            <li><%= link_to "로그아웃", destroy_user_session_path, :method => :delete %></li>
-            <li style="padding:10px"><%= current_user.email %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.email %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "프로필 설정", edit_setting_path %></li>
+                <li><%= link_to "보안 설정", edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "로그아웃", destroy_user_session_path, :method => 'delete' %><li>
+              </ul>
+            </li>
           </ul>
         <% else %>
           <ul class="nav">
-            <li style="padding:10px">계정이 있으신가요?</li>
+            <li style="padding-top:10px;">계정이 있으신가요?</li>
             <li><%= link_to "로그인", new_user_session_path %></li>
           </ul>
         <% end %>

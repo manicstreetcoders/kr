@@ -1,0 +1,24 @@
+<h2>프로필 설정</h2>
+
+<%= form_for @user, :url => update_setting_path, :html => { :multipart => true } do |f| %>
+
+  <%= render 'error_messages' %>
+
+  <br />
+
+  이메일: <%= @user.email %>
+
+  <br />
+
+  내 사진: <br />
+  <%= image_tag @user.avatar.url %>
+
+  <br />
+
+  <%= f.file_field :avatar %>
+
+  <br />
+
+  <%= f.submit "변경사항 저장하기", class: "btn btn-primary" %>
+
+<% end %>
