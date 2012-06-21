@@ -1,0 +1,38 @@
+<div class="hero-unit">
+  <% if user_signed_in? %>
+    <h2><%= current_user.email %> 님, koReport BETA 에 오신 것을 환영합니다.</h2>
+  <% else %>
+    <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
+  <% end %>
+  <p>하드디스크에서 잠자고 있는 여러분의 리포트를 팔아보세요.</p>
+  
+  <br />
+
+  <p>내가 올린 리포트들</p>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>제목</th>
+        <th>날짜</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reports.each do |r| %>
+        <tr>
+          <td><%= r.id %></td>
+          <td><%= r.title %></td>
+          <td><%= ago(r.created_at) %></td>
+          <td>
+            <%= link_to t('.edit', :default => "ed"),
+              '#', :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => 'rm'),
+              '#', :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><a class="btn btn-primary btn-large">리포트 업로드 &raquo;</a></p>
+</div> 
