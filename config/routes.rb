@@ -1,6 +1,6 @@
 Kr::Application.routes.draw do
-  match '/settings/edit', to: 'settings#edit', :as => :edit_setting
-  match '/settings/update', to: 'settings#update', :as => :update_setting
+  match '/settings/edit', to: 'settings#edit', :as => :edit_setting, :via => :get
+  match '/settings/update', to: 'settings#update', :as => :update_setting, :via => :put
 
   devise_for :users
 
