@@ -1,5 +1,5 @@
 <header class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
+  <div class="navbar-inner" style="font-size:14px;">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
@@ -8,28 +8,41 @@
       </a>
       <a class="brand" href="/">koReport BETA</a>
       <div class="nav-collapse">
-        <ul class="nav" style="padding-top:9px;"> 
+        <ul class="nav" style="padding-top:10px;"> 
           <li>하드디스크에서 잠자는 리포트를 팔아라!<li>
         </ul>
       </div>
       <div class="nav-collapse pull-right">
         <% if user_signed_in? %>
           <ul class="nav">
+            <li><%= link_to "마이 페이지", reports_index_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= current_user.email %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "프로필 설정", edit_setting_path %></li>
-                <li><%= link_to "보안 설정", edit_user_registration_path %></li>
+                <li>
+                  <%= link_to edit_setting_path do %>
+                    <i class="icon-user"></i> 프로필설정
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to edit_user_registration_path do %>
+                    <i class="icon-lock"></i> 보안 설정
+                  <% end %>
+                </li>
                 <li class="divider"></li>
-                <li><%= link_to "로그아웃", destroy_user_session_path, :method => 'delete' %><li>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => 'delete' do %>
+                    <i class="icon-off"></i> 로그아웃
+                  <% end %>
+                </li>
               </ul>
             </li>
           </ul>
         <% else %>
           <ul class="nav">
-            <li style="padding-top:9px;">계정이 있으신가요? &#160</li>
+            <li style="padding-top:10px;">계정이 있으신가요? &#160</li>
             <li><%= link_to "로그인", new_user_session_path %></li>
           </ul>
         <% end %>

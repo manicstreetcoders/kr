@@ -1,4 +1,4 @@
-@import 'bootswatch/united/variables';
+@import 'bootswatch/journal/variables';
 
 @import 'bootstrap';
 body {
@@ -6,8 +6,10 @@ body {
 }
 @import 'bootstrap-responsive';
 
-@import 'bootswatch/united/bootswatch';
+@import 'bootswatch/journal/bootswatch';
+
+@import 'font-awesome';
 
 .hero-unit {
-  background-color: #eeeeee;
+//  background-color: #eeeeee;
 }

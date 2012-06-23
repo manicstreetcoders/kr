@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :password_confirmation
   # attr_accessible :title, :body
 
-  has_attached_file :avatar, :style => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :thumb => "200x200>" }
 
   has_many :reports
 end
