@@ -14,7 +14,10 @@
       <tr>
         <th>ID</th>
         <th>제목</th>
-        <th>날짜</th>
+        <th>View</th>
+        <th>Sales</th>
+        <th>Revenues</th>
+        <th>올린 날짜</th>
         <th>액션</th>
       </tr>
     </thead>
@@ -22,18 +25,24 @@
       <% @reports.each do |r| %>
         <tr>
           <td><%= r.id %></td>
-          <td><%= r.title %></td>
+          <td><%= link_to r.title, '#' %>
+          <td>10</td>
+          <td>5</td>
+          <td>$100</td>
           <td><%= ago(r.created_at) %></td>
           <td>
-            <%= link_to t('.edit', :default => "Edit"),
+            <%= link_to 'Edit',
               '#', :class => 'btn btn-mini' %>
-            <%= link_to t('.destroy', :default => 'Delete'),
+            <%= link_to 'Download', r.document.url, :class => 'btn btn-mini btn-info' %>
+            <%= link_to 'Delete',
               '#', :class => 'btn btn-mini btn-danger' %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  
+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>
 
   <%= link_to new_reports_path, :class => 'btn btn-primary btn-large' do %>
     리포트 등록 &raquo;
