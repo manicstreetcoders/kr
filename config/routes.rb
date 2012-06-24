@@ -1,6 +1,5 @@
 Kr::Application.routes.draw do
-  get "reports/index"
-  get "reports/new"
+  get "/reports/index"
   resource :reports
 
   match '/settings/edit', to: 'settings#edit', :as => :edit_setting, :via => :get

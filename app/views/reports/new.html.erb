@@ -1,2 +1,12 @@
-<h1>Reports#new</h1>
-<p>Find me in app/views/reports/new.html.erb</p>
+<h2>리포트 등록</h2>
+
+<%= simple_form_for @report, :url => reports_path, :method => :post, :html => { :multipart => true } do |f| %>
+
+  <%= render 'error_messages' %>
+
+  <%= f.input :title %>
+
+  <%= f.file_field :document %>
+
+  <%= f.submit '리포트 등록', class: 'btn btn-primary' %>
+<% end %>

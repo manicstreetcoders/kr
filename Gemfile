@@ -57,3 +57,5 @@ gem 'simple_form'
 gem 'authbuttons-rails'
 
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+
+gem 'will_paginate', '> 3.0'
