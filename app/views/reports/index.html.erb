@@ -15,6 +15,7 @@
         <th>ID</th>
         <th>제목</th>
         <th>날짜</th>
+        <th>액션</th>
       </tr>
     </thead>
     <tbody>
@@ -24,15 +25,17 @@
           <td><%= r.title %></td>
           <td><%= ago(r.created_at) %></td>
           <td>
-            <%= link_to t('.edit', :default => "ed"),
+            <%= link_to t('.edit', :default => "Edit"),
               '#', :class => 'btn btn-mini' %>
-            <%= link_to t('.destroy', :default => 'rm'),
-              '#', :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => 'Delete'),
+              '#', :class => 'btn btn-mini btn-danger' %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <p><a class="btn btn-primary btn-large">리포트 업로드 &raquo;</a></p>
+  <%= link_to new_reports_path, :class => 'btn btn-primary btn-large' do %>
+    리포트 업로드 &raquo;
+  <% end %>
 </div> 

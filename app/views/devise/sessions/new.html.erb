@@ -1,16 +1,26 @@
 <h2>로그인</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'well form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
+<br />
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
   <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 접속하세요. 아니면 이메일과 패스워드를 입력해주세요.</p>
 
-  <br \>
-  <div style="display: inline-bloack;"><%= f.email_field :email, :placeholder => "이메일" %>
-  <%= f.password_field :password, :placeholder => "패스워드" %>
-  <%= f.submit "로그인", :class => 'btn btn-primary', :title => '로그인' %>
+  <br />
+
+  <div style="display: inline-bloack;">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-envelope"></i></span>
+      <%= f.email_field :email, :class => 'span2', :placeholder => "이메일" %>
+    </div>
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-key"></i></span>
+      <%= f.password_field :password, :class => 'span2', :placeholder => "패스워드" %>
+    </div>
+    <%= f.submit "로그인", :class => 'btn btn-primary', :title => '로그인' %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <br \>
+    <br />
     <div><%= f.check_box :remember_me, :checked => true %> <%= f.label :remember_me %></div>
   <% end %>
 
