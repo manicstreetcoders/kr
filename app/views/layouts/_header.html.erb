@@ -17,11 +17,15 @@
           <ul class="nav">
             <li>
               <%= form_tag search_path, method: :get, class: 'navbar-search' do %>
-                <%= text_field_tag :query, params[:query], class: 'search-query', placeholder: '리포트 제목을 입력하세요' %>
                 <i class='icon-search'></i>
+                <%= text_field_tag :query, params[:query], class: 'search-query', placeholder: '리포트 제목을 입력하세요' %>
               <% end %>
             </li>
-            <li><%= link_to "마이 페이지", reports_path %></li>
+            <li>
+              <%= link_to reports_path do %>
+                <i class='icon-dashboard'></i> 대쉬보드
+              <% end %>
+            </li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="icon-user icon-large"></i> <%= current_user.email %> <b class="caret"></b>
