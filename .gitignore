@@ -18,5 +18,6 @@
 
 /config/database.yml
 
-/public/system/
+/public/system/reports/
+/public/system/users/
 
