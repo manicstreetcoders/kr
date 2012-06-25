@@ -1,2469 +1,0 @@
-Script started on Mon Jun 25 13:04:14 2012
-[32mUsing /Users/kichangyang/.rvm/gems/ruby-1.9.3-p194[m
-~/code/kr% script [K/plugin install git::[K//github.com/eladmeidar/rails_indexes.git 
-bash: script/plugin: No such file or directory
-~/code/kr% ls -l script/ind[C[C[C[C[C[C[C[C[C[C[C[Kls -l script/p*
-ls: script/p*: No such file or directory
-~/code/kr% ls -l script/rails 
-.DS_Store     Gemfile       config/       lib/          tmp/
-.bundle/      Gemfile.lock  config.ru     log/          typescript
-.git/         Rakefile      db/           public/       vendor/
-.gitignore    app/          doc/          script/       
-~/code/kr% ls -l script/rails 
-.DS_Store     Gemfile       config/       lib/          tmp/
-.bundle/      Gemfile.lock  config.ru     log/          typescript
-.git/         Rakefile      db/           public/       vendor/
-.gitignore    app/          doc/          script/       
-~/code/kr% ls -l script/rails [K[K[K[K[K[Krails 
-.DS_Store     Gemfile       config/       lib/          tmp/
-.bundle/      Gemfile.lock  config.ru     log/          typescript
-.git/         Rakefile      db/           public/       vendor/
-.gitignore    app/          doc/          script/       
-~/code/kr% ls -l script/rails 
-.DS_Store     Gemfile       config/       lib/          tmp/
-.bundle/      Gemfile.lock  config.ru     log/          typescript
-.git/         Rakefile      db/           public/       vendor/
-.gitignore    app/          doc/          script/       
-~/code/kr% ls -l script/rails [C[C[C[C[C[C[C[C[C[C[C[Kls -l script/
-total 8
--rwxr-xr-x  1 kichangyang  staff  295  6 11 23:34 [31mrails[39;49m[0m*
-~/code/kr% ls -l script/rails
--rwxr-xr-x  1 kichangyang  staff  295  6 11 23:34 [31mscript/rails[39;49m[0m*
-~/code/kr% more script/rails
-[?1h=#!/usr/bin/env ruby
-# This command will automatically be run when you run "rails" with Rails 3 gems installed from the root of your application.
-
-APP_PATH = File.expand_path('../../config/application',  __FILE__)
-require File.expand_path('../../config/boot',  __FILE__)
-require 'rails/commands'
-[K[?1l>~/code/kr% ra[Kcd ../blog
-~/code/blog% ls
-Capfile       Rakefile      [34mdb[39;49m[0m/           [34mpublic[39;49m[0m/       [34mvendor[39;49m[0m/
-Gemfile       [34mapp[39;49m[0m/          [34mdoc[39;49m[0m/          [34mscript[39;49m[0m/
-Gemfile.lock  [34mconfig[39;49m[0m/       [34mlib[39;49m[0m/          [34mtest[39;49m[0m/
-README.rdoc   config.ru     [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/
-~/code/blog% ra[Kcd ../sample_app/
-~/code/sample_app% ls
-Gemfile        [34mapp[39;49m[0m/           [34mdoc[39;49m[0m/           [34mpublic[39;49m[0m/        [34mvendor[39;49m[0m/
-Gemfile.lock   [34mconfig[39;49m[0m/        [34mlib[39;49m[0m/           [34mscript[39;49m[0m/
-README.md      config.ru      [34mlog[39;49m[0m/           [34mspec[39;49m[0m/
-Rakefile       [34mdb[39;49m[0m/            npm-debug.log  [34mtmp[39;49m[0m/
-~/code/sample_app% ra[K[Kgem install rails-indexes
-Fetching: rails-indexes-0.0.1.gemFetching: rails-indexes-0.0.1.gem ( 25%)Fetching: rails-indexes-0.0.1.gem ( 85%)Fetching: rails-indexes-0.0.1.gem (100%)Fetching: rails-indexes-0.0.1.gem (100%)
-Successfully installed rails-indexes-0.0.1
-1 gem installed
-Installing ri documentation for rails-indexes-0.0.1...
-Installing RDoc documentation for rails-indexes-0.0.1...
-~/code/sample_app% rake db:index_migration
-rake aborted!
-Don't know how to build task 'db:index_migration'
-
-(See full trace by running task with --trace)
-~/code/sample_app% rake db:find_query_indexes
-rake aborted!
-Don't know how to build task 'db:find_query_indexes'
-
-(See full trace by running task with --trace)
-~/code/sample_app% more Rakefile
-[?1h=#!/usr/bin/env rake
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
-
-require File.expand_path('../config/application', __FILE__)
-
-SampleApp::Application.load_tasks
-[K[?1l>~/code/sample_app% vi Gemfile
-[?1049h[?1h=[1;21r[34l[34h[?25h[23m[24m[0m[H[J[?25l[21;1H"Gemfile" "Gemfile" 52L, 1041C[1;1Hsource 'https://rubygems.org'
-
-gem 'rails', '3.2.3'
-gem 'bootstrap-sass', '2.0.0'
-gem 'modernizr-rails'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-group :development, :test do
-  gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.9.0'
-  gem 'annotate', '~> 2.4.1.beta'
-end
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '3.2.4'[1;1H[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25h$[?25l[23m[24m[0m[H[J[1;1Hend
-
-group :production do
-  gem 'pg', '0.12.2'
-end
-
-# To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '3.0.1'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'[34h[?25h[?25l
-[1m-- INSERT --[1;20r[0m[20;1H
-[1;21r[21;1H[1m-- INSERT --[20;1H[34h[?25h[?25l[1;20r[0m[20;1H
-[1;21r[21;1H[1m-- INSERT --[20;1H[34h[?25h[?25l[0mg[34h[?25h[?25lge[34h[?25h[?25lem[34h[?25h[?25l [34h[?25h[?25l '[34h[?25h[?25l'l[34h[?25h[?25llo[34h[?25h[?25lol[34h[?25h[?25ll_[34h[?25h[?25l_d[34h[?25h[?25ldb[34h[?25h[?25lba[34h[?25h[?25la'[34h[?25h[21;1H[K[?25l[20;13H[34h[?25h[?25l
-:[34h[?25hwq[?25l"Gemfile" "Gemfile" 54L, 1056C written
-[?1l>[34h[?25h[?1049l~/code/sample_app% bundle install
-Fetching gem metadata from https://rubygems.org/..rake db:f.ind._i.nd.e.xes.
- Using rake (0.9.2.2) 
-Using i18n (0.6.0) 
-Using multi_json (1.3.2) 
-Using activesupport (3.2.3) 
-Using builder (3.0.0) 
-Using activemodel (3.2.3) 
-Using erubis (2.7.0) 
-Using journey (1.0.3) 
-Using rack (1.4.1) 
-Using rack-cache (1.2) 
-Using rack-test (0.6.1) 
-Using hike (1.2.1) 
-Using tilt (1.3.3) 
-Using sprockets (2.1.2) 
-Using actionpack (3.2.3) 
-Using mime-types (1.18) 
-Using polyglot (0.3.3) 
-Using treetop (1.4.10) 
-Using mail (2.4.4) 
-Using actionmailer (3.2.3) 
-Using arel (3.0.2) 
-Using tzinfo (0.3.33) 
-Using activerecord (3.2.3) 
-Using activeresource (3.2.3) 
-Using addressable (2.2.7) 
-Using annotate (2.4.1.beta1) 
-Using bcrypt-ruby (3.0.1) 
-Using bootstrap-sass (2.0.0) 
-Using bundler (1.1.3) 
-Using nokogiri (1.5.2) 
-Using ffi (1.0.11) 
-Using childprocess (0.3.2) 
-Using libwebsocket (0.1.3) 
-Using rubyzip (0.9.7) 
-Using selenium-webdriver (2.21.2) 
-Using xpath (0.1.4) 
-Using capybara (1.1.2) 
-Using coffee-script-source (1.3.1) 
-Using execjs (1.3.0) 
-Using coffee-script (2.2.0) 
-Using rack-ssl (1.3.2) 
-Using json (1.6.6) 
-Using rdoc (3.12) 
-Using thor (0.14.6) 
-Using railties (3.2.3) 
-Using coffee-rails (3.2.2) 
-Using diff-lcs (1.1.3) 
-Using jquery-rails (2.0.0) 
-
-Installing lol_dba (1.3.0) 
-Using modernizr-rails (2.0.6) 
-Using rails (3.2.3) 
-Using rspec-core (2.9.0) 
-Using rspec-expectations (2.9.1) 
-Using rspec-mocks (2.9.0) 
-Using rspec (2.9.0) 
-Using rspec-rails (2.9.0) 
-Using sass (3.1.16) 
-Using sass-rails (3.2.4) 
-Using sqlite3 (1.3.5) 
-Using uglifier (1.2.3) 
-[32mYour bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.[0m
-~/code/sample_app% rake db:find_indexes 
-
-    ## run `rails g migration AddMissingIndexes` and add the following content
-
-
-    class AddMissingIndexes < ActiveRecord::Migration
-      def self.up
-        
-      end
-
-      def self.down
-        
-      end
-    end
-~/code/sample_app% cd ..
-~/code% ls
-FortAwesome-Font-Awesome-2.0.0-25-gee55c85.zip
-[34mFortAwesome-Font-Awesome-ee55c85[39;49m[0m/
-[34mRDSCli-1.8.002[39;49m[0m/
-RDSCli.zip
-[31ma[39;49m[0m*
-[31ma.coffee[39;49m[0m*
-add.js
-b.coffee
-b.js
-beget.js
-[34mblog[39;49m[0m/
-[34mbootstrap[39;49m[0m/
-bootstrap (1).zip
-cat.coffee
-[34mcode[39;49m[0m/
-[34mcss-social-buttons[39;49m[0m/
-[34mdemo_app[39;49m[0m/
-ec2-api-tools(1).zip
-[34mec2-api-tools-1.5.4.0[39;49m[0m/
-[34mgrowl[39;49m[0m/
-growl.zip
-hi.js
-[34mjquery-purr[39;49m[0m/
-jquery-purr.zip
-[34mkore[39;49m[0m/
-[34mkr[39;49m[0m/
-[34mkr-old[39;49m[0m/
-[34mkr_20120613[39;49m[0m/
-ni.js
-[34moctopress[39;49m[0m/
-[31modd.coffee[39;49m[0m*
-[34mprng[39;49m[0m/
-[34mquestionnaire-after[39;49m[0m/
-[34mquestionnaire-before[39;49m[0m/
-[34msample_app[39;49m[0m/
-sc1.js
-sc2.js
-[31mscope.coffee[39;49m[0m*
-warv-code.tgz
-~/code% cd kr
-~/code/kr% ls
-Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/
-Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript
-Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/
-~/code/kr% vi Gemfile 
-[?1049h[?1h=[1;21r[34l[34h[?25h[23m[24m[0m[H[J[?25l[21;1H"Gemfile" "Gemfile" 63L, 1145C[1;1Hsource 'https://rubygems.org'
-
-gem 'rails', '3.2.5'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg', '0.12.2'
-end[1;1H[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25h$[?25l[23m[24m[0m[H[J[1;1H# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
-gem 'devise'
-
-gem 'simple_form'
-
-gem 'authbuttons-rails'
-
-gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
-
-gem 'will_paginate', '> 3.0'
-
-gem 'will_paginate-bootstrap'[34h[?25h[?25l
-[1m-- INSERT --[1;20r[0m[20;1H
-[1;21r[21;1H[1m-- INSERT --[20;1H[34h[?25h[?25l[1;20r[0m[20;1H
-[1;21r[21;1H[1m-- INSERT --[20;1H[34h[?25h[?25l[0mg[34h[?25h[?25lge[34h[?25h[?25lem[34h[?25h[?25l [34h[?25h[?25l '[34h[?25h[?25l'l[34h[?25h[?25llo[34h[?25h[?25lol[34h[?25h[?25ll_[34h[?25h[?25l_d[34h[?25h[?25ldb[34h[?25h[?25lba[34h[?25h[?25la'[34h[?25h[21;1H[K[?25l[20;13H[34h[?25h[?25l
-:[34h[?25hwq[?25l"Gemfile" "Gemfile" 65L, 1160C written
-[?1l>[34h[?25h[?1049l~/code/kr% bundle install
-Using rake (0.9.2.2) 
-Using i18n (0.6.0) 
-Using multi_json (1.3.6) 
-Using activesupport (3.2.5) 
-Using builder (3.0.0) 
-Using activemodel (3.2.5) 
-Using erubis (2.7.0) 
-Using journey (1.0.3) 
-Using rack (1.4.1) 
-Using rack-cache (1.2) 
-Using rack-test (0.6.1) 
-Using hike (1.2.1) 
-Using tilt (1.3.3) 
-Using sprockets (2.1.3) 
-Using actionpack (3.2.5) 
-Using mime-types (1.18) 
-Using polyglot (0.3.3) 
-Using treetop (1.4.10) 
-Using mail (2.4.4) 
-Using actionmailer (3.2.5) 
-Using arel (3.0.2) 
-Using tzinfo (0.3.33) 
-Using activerecord (3.2.5) 
-Using activeresource (3.2.5) 
-Using authbuttons-rails (0.1.2) 
-Using bcrypt-ruby (3.0.1) 
-Using bootstrap-sass (2.0.3.1) 
-Using rack-ssl (1.3.2) 
-Using json (1.7.3) 
-Using rdoc (3.12) 
-Using thor (0.15.2) 
-Using railties (3.2.5) 
-Using bootswatch-rails (0.0.11) 
-Using bundler (1.1.3) 
-Using cocaine (0.2.1) 
-Using coffee-script-source (1.3.3) 
-Using execjs (1.4.0) 
-Using coffee-script (2.2.0) 
-Using coffee-rails (3.2.2) 
-Using orm_adapter (0.1.0) 
-Using warden (1.2.1) 
-Using devise (2.1.1) 
-Using sass (3.1.19) 
-Using sass-rails (3.2.5) 
-Using font-awesome-sass-rails (2.0.0.0) 
-Using jquery-rails (2.0.2) 
-Using lol_dba (1.3.0) 
-Using paperclip (3.1.2) from git://github.com/thoughtbot/paperclip.git (at master) 
-Using rails (3.2.5) 
-Using simple_form (2.0.2) 
-Using sqlite3 (1.3.6) 
-Using uglifier (1.2.4) 
-Using will_paginate (3.0.3) 
-Using will_paginate-bootstrap (0.2.1) 
-[32mYour bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.[0m
-~/code/kr% bundle
-Using rake (0.9.2.2) 
-Using i18n (0.6.0) 
-Using multi_json (1.3.6) 
-Using activesupport (3.2.5) 
-Using builder (3.0.0) 
-Using activemodel (3.2.5) 
-Using erubis (2.7.0) 
-Using journey (1.0.3) 
-Using rack (1.4.1) 
-Using rack-cache (1.2) 
-Using rack-test (0.6.1) 
-Using hike (1.2.1) 
-Using tilt (1.3.3) 
-Using sprockets (2.1.3) 
-Using actionpack (3.2.5) 
-Using mime-types (1.18) 
-Using polyglot (0.3.3) 
-Using treetop (1.4.10) 
-Using mail (2.4.4) 
-Using actionmailer (3.2.5) 
-Using arel (3.0.2) 
-Using tzinfo (0.3.33) 
-Using activerecord (3.2.5) 
-Using activeresource (3.2.5) 
-Using authbuttons-rails (0.1.2) 
-Using bcrypt-ruby (3.0.1) 
-Using bootstrap-sass (2.0.3.1) 
-Using rack-ssl (1.3.2) 
-Using json (1.7.3) 
-Using rdoc (3.12) 
-Using thor (0.15.2) 
-Using railties (3.2.5) 
-Using bootswatch-rails (0.0.11) 
-Using cocaine (0.2.1) 
-Using coffee-script-source (1.3.3) 
-Using execjs (1.4.0) 
-Using coffee-script (2.2.0) 
-Using coffee-rails (3.2.2) 
-Using orm_adapter (0.1.0) 
-Using warden (1.2.1) 
-Using devise (2.1.1) 
-Using sass (3.1.19) 
-Using sass-rails (3.2.5) 
-Using font-awesome-sass-rails (2.0.0.0) 
-Using jquery-rails (2.0.2) 
-Using lol_dba (1.3.0) 
-Using paperclip (3.1.2) from git://github.com/thoughtbot/paperclip.git (at master) 
-Using bundler (1.1.3) 
-Using rails (3.2.5) 
-Using simple_form (2.0.2) 
-Using sqlite3 (1.3.6) 
-Using uglifier (1.2.4) 
-Using will_paginate (3.0.3) 
-Using will_paginate-bootstrap (0.2.1) 
-[32mYour bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.[0m
-~/code/kr% more Gemfile
-[?1h=source 'https://rubygems.org'
-
-gem 'rails', '3.2.5'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg', '0.12.2'
-end
-
-
-[3mGemfile [23m[K[K# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
-  gem 'bootswatch-rails'
-  gem 'font-awesome-sass-rails'
-end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-:[K[K# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
-gem 'devise'
-
-gem 'simple_form'
-
-gem 'authbuttons-rails'
-
-gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
-
-:[K[Kgem 'will_paginate', '> 3.0'
-
-gem 'will_paginate-bootstrap'
-
-gem 'lol_dba'
-[3m(END) [23m[K[K[K[?1l>~/code/kr%        
-~/code/kr% 
-~/code/kr% rake db:find_indexes
-
-Yey, no missing indexes found!
-~/code/kr% 
-~/code/kr% 
-~/code/kr% 
-~/code/kr% clear
-[H[J~/code/kr% ls
-Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/
-Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript
-Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/
-~/code/kr% rake db:[Kclear
-[H[J~/code/kr% ls
-Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/
-Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript
-Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/
-~/code/kr% cd app/views/
-~/code/kr/app/views% ls
-[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/
-~/code/kr/app/views% cd reports/
-~/code/kr/app/views/reports% ls
-_error_messages.html.erb  new.html.erb
-index.html.erb            search.html.erb
-~/code/kr/app/views/reports% vi search.html.erb 
-[?1049h[?1h=[1;21r[34l[34h[?25h[23m[24m[0m[H[J[?25l[21;1H"search.html.erb" "search.html.erb" 45L, 1326C[1;1H<div class="hero-unit">
-  <p>Search results</p>
-  <table class='table table-striped'>
-    <thead>[5;6H <tr>[6;8H <th>ID</th>[7;8H <th>제목</th>[8;8H <th>View</th>[9;8H <th>Sales</th>[10;8H <th>Revenues</th>[11;8H <th>올린 날짜</th>[12;8H <th>액션</th>[13;6H </tr>
-    </thead>
-    <tbody>[16;6H <% @reports.each do |r| %>[17;8H <tr>[18;10H <td><%= r.id %></td>[19;10H <td><%= link_to r.title, '#' %>[20;10H <td>10</td>[1;1H[34h[?25h[?25l[21;1H[K[21;1H/[34h[?25hwill_pa[?25l/will_pa[23m[24m[0m[H[J[1;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[2;1Hfo' %>[3;12H <%= link_to '지우기',[4;14H report_path(r),[5;14H :method => :delete,[6;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[7;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[8;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[9;10H </td>[10;8H </tr>[11;6H <% end %>
-    </tbody>
-  </table>
-
-  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>
-
-  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>
-    리포트 등록 &raquo;
-  <% end %>
-</div>[15;7H[34h[?25h[?25l[15;20r[20;1H
-[1;21r[20;1H[94m~                                                                                 [15;1H[34h[?25h[?25l[15;20r[0m[20;1H
-[1;21r[20;1H[94m~                                                                                 [15;3H[34h[?25h[?25l[21;1H[0m:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 43L, 1252C written"search.html.erb" 43L, 1252C written[15;3H[34h[?25h[?25l[23m[24m[0m[H[J[1;8H <th>Revenues</th>[2;8H <th>올린 날짜</th>[3;8H <th>액션</th>[4;6H </tr>
-    </thead>
-    <tbody>[7;6H <% @reports.each do |r| %>[8;8H <tr>[9;10H <td><%= r.id %></td>[10;10H <td><%= link_to r.title, '#' %>[11;10H <td>10</td>[12;10H <td>5</td>[13;10H <td>$100</td>[14;10H <td><%= ago(r.created_at) %></td>[15;10H <td>[16;12H <%= link_to '편집',[17;14H '#', :class => 'btn btn-mini' %>[18;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[19;1Hfo' %>[20;12H <%= link_to '지우기',[20;13H[34h[?25h[?25l[1;20r[1;1H[8L[1;21r[1;2H <p>Search results</p>
-  <table class='table table-striped'>
-    <thead>[4;6H <tr>[5;8H <th>ID</th>[6;8H <th>제목</th>[7;8H <th>View</th>[8;8H <th>Sales</th>[10;9H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[20;11H[34h[?25h[?25l[34h[?25h[?25l[34h[?25h[19;11H[18;11H[17;11H[16;11H[15;11H[14;11H[13;11H[12;11H[11;11H[10;11H[9;11H[8;11H[7;11H[6;11H[5;10H[4;11H[3;11H[2;11H[1;11H[2;11H[?25l[21;1H[1m-- INSERT --[0m[2;3H<>Search results</p>[2;23H[K[2;4H[34h[?25h[?25l<h>Search results</p>  <h[34h[?25h[?25lh2>Search results</p>  <h2[34h[?25h[21;1H[K[?25l[2;5H[34h[?25h[19C[?25l/>[2;24H[K[2;23H[34h[?25h[?25l[21;1H[1m-- INSERT --[2;23H[34h[?25h[?25l[0m/h>[34h[?25h[?25lh2>[34h[?25h[21;1H[K[?25l[2;24H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 43L, 1254C written"search.html.erb" 43L, 1254C written[2;24H[34h[?25h[3;24H[4;11H[5;10H[6;19H[7;21H[8;21H[9;22H[10;24H[11;24H[12;21H[13;11H[14;12H[15;11H[16;24H[17;12H[18;24H[19;24H[20;21H[19;24H[18;24H[17;12H[16;24H[15;11H[?25l[21;1H[1m-- INSERT --[0m[21;13H[K[16;20r[16;1H[L[1;21r[21;1H[1m-- INSERT --[16;5H[34h[?25h[?25l[0m  [34h[?25h[?25l <[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l i[34h[?25h[?25lif[34h[?25h[?25l [34h[?25h[?25l @[34h[?25h[?25l@r[34h[?25h[?25lre[34h[?25h[?25lep[34h[?25h[?25lpo[34h[?25h[?25lor[34h[?25h[?25lrt[34h[?25h[?25lts[34h[?25h[?25ls.[34h[?25h[?25l.c[34h[?25h[?25lco[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnt[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[?25l[17;20r[17;1H[L[1;21r[21;1H[1m-- INSERT --[17;7H[34h[?25h[?25l[0m <[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l e[34h[?25h[?25len[34h[?25h[?25lnd[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[21;1H[K[?25l[17;15H[34h[?25h[16;15H[?25l[21;1H[1m-- INSERT --[17;20r[0m[17;1H[L[1;21r[21;1H[1m-- INSERT --[17;7H[34h[?25h[?25l[0m  [34h[?25h[21;1H[K[?25l[17;8H[34h[?25h[16;8H[19;32H[18;15H[17;8H[16;29H[15;11H[14;12H[15;11H[16;29H[?25l[21;1H[1m-- INSERT --[16;28H[34h[?25h[?25l[0m =%>[34h[?25h[?25l==%>[34h[?25h[?25l= %>[34h[?25h[?25l 0%>[34h[?25h[21;1H[K[?25l[16;31H[34h[?25h[17;8H[16;31H0[?25l[21;1H[1m-- INSERT --[16;32H[34h[?25h[?25l[0m0 %>[34h[?25h[21;1H[K[?25l[16;32H[34h[?25h[17;8H[?25l[21;1H[1m-- INSERT --[17;8H[34h[?25h[?25l[0m [34h[?25h[?25l /[34h[?25h[?25l/t[34h[?25h[?25ltr[34h[?25h[?25lr>[34h[?25h[?25lr [34h[?25h[?25lt [34h[?25h[?25l/ [34h[?25h[?25l  [34h[?25h[?25l <[34h[?25h[?25l<t[34h[?25h[?25ltr[34h[?25h[?25lr>[34h[?25h[?25l[18;20r[18;1H[L[1;21r[21;1H[1m-- INSERT --[18;9H[34h[?25h[?25l[0m <[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltr[34h[?25h[?25lr>[34h[?25h[21;1H[K[?25l[18;13H[34h[?25h[17;12H[?25l[21;1H[1m-- INSERT --[0m[18;9H[K[19;6H   </tr>[19;14H[K[20;9H end %>[20;16H[K[18;9H[34h[?25h[?25l  [34h[?25h[?25l <[34h[?25h[?25l<t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[?25l>N[34h[?25h[?25lNo[34h[?25h[?25l [34h[?25h[?25l r[34h[?25h[?25lre[34h[?25h[?25les[34h[?25h[?25lsu[34h[?25h[?25lul[34h[?25h[?25llt[34h[?25h[?25lt<[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[21;1H[K[?25l[18;28H[34h[?25h[?25l
-
-
-:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 48L, 1361C written"search.html.erb" 48L, 1361C written[18;28H[34h[?25h[?25l
-
-
-[1m-- INSERT --[0m[21;13H[K[18;24H[34h[?25h[?25lts</td>[34h[?25h[21;1H[K[?25l[18;24H[34h[?25h[?25l
-
-
-:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 48L, 1362C written"search.html.erb" 48L, 1362C written[18;24H[34h[?25h[?25lt</td>[18;29H[K[18;24H[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 48L, 1361C written"search.html.erb" 48L, 1361C written[18;24H[34h[?25h[17;12H[16;24H[17;12H[18;24H[19;13H[20;15H[?25l[1;20r[20;1H
-[1;21r[20;6H <% @reports.each do |r| %>[21;1H[K[20;24H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H <tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[20;24H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[20;24H[34h[?25h[19;24H[18;12H[17;24H[16;15H[15;13H[14;24H[?25l[21;1H[1m-- INSERT --[15;20r[0m[15;1H[L[1;21r[21;1H[1m-- INSERT --[15;11H[34h[?25h[?25l[0m <[34h[?25h[?25l<t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[?25l>,[34h[?25h[?25l,/[34h[?25h[?25l[15;16H[K[15;16H[34h[?25h[?25l[15;15H[K[15;15H[34h[?25h[?25l><[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[21;1H[K[?25l[15;19H[34h[?25h[?25l[16;20r[16;1H[L[1;21r[16;10H <td></td>[16;11H[34h[?25h[?25l[17;20r[17;1H[L[1;21r[17;10H <td></td>[17;11H[34h[?25h[?25l[18;8H   <td></td>[19;6H   </tr>[19;14H[K[20;9H end %>[20;16H[K[18;11H[34h[?25h[?25l[19;8H   <td></td>[20;6H   </tr>[20;14H[K[19;11H[34h[?25h[?25l[20;8H   <td></td>[20;11H[34h[?25h[?25l
-:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 54L, 1481C written"search.html.erb" 54L, 1481C written[20;11H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[21;1H[K[20;11H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[19;11H[18;11H[17;11H[16;11H[15;11H[14;11H[13;11H[12;11H[11;11H[10;11H[9;11H[8;11H[7;11H[6;11H[5;11H[4;11H[3;11H[2;11H[1;11H[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[1;11H[34h[?25h[2;11H[3;11H[4;11H[5;11H[6;11H[7;11H[8;11H[9;11H[10;11H[11;11H[12;11H[13;11H[14;11H[15;11H[16;11H[17;11H[18;11H[19;11H[18;11H[17;11H[16;11H[15;11H[14;11H[13;11H<td>[?25l[21;1H[1m-- INSERT --[0m[13;14H> result</td>[13;27H[K[13;15H[34h[?25h[?25l>x result</td>[13;16H[34h[?25h[21;1H[K[?25l[13;15H[34h[?25h>[?25l> result</td>[13;27H[K[13;15H[34h[?25h[?25l>result</td>[13;26H[K[13;15H[34h[?25h[?25l>esult</td>[13;25H[K[13;15H[34h[?25h[?25l>sult</td>[13;24H[K[13;15H[34h[?25h[?25l>ult</td>[13;23H[K[13;15H[34h[?25h[?25l>lt</td>[13;22H[K[13;15H[34h[?25h[?25l>t</td>[13;21H[K[13;15H[34h[?25h[?25l></td>[13;20H[K[13;15H[34h[?25h[?25l[21;1H[1m-- INSERT --[13;15H[34h[?25h[?25l[0m>N</td>[34h[?25h[?25lNo</td>[34h[?25h[?25lot</td>[34h[?25h[?25lt </td>[34h[?25h[?25l f</td>[34h[?25h[?25lfo</td>[34h[?25h[?25lou</td>[34h[?25h[?25lun</td>[34h[?25h[?25lnd</td>[34h[?25h[21;1H[K[?25l[13;23H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 54L, 1481C written"search.html.erb" 54L, 1481C written[13;23H[34h[?25h[12;12H[11;23H[10;11H[9;12H[8;11H[7;21H[6;23H[5;23H[4;22H[3;21H[2;21H[1;19H[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[21;1H[K[1;10H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[1;23H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[34h[?25h[2;23H[3;23H[4;11H[5;10H[4;11H[?25l[21;1H[1m-- INSERT --[5;20r[0m[5;1H[L[1;21r[21;1H[1m-- INSERT --[5;5H[34h[?25h[?25l[0m  [34h[?25h[?25l <[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l i[34h[?25h[?25lif[34h[?25h[?25l [34h[?25h[?25l @[34h[?25h[?25l@r[34h[?25h[?25lre[34h[?25h[?25lep[34h[?25h[?25lpo[34h[?25h[?25lor[34h[?25h[?25lrt[34h[?25h[?25lts[34h[?25h[?25ls.[34h[?25h[?25l.c[34h[?25h[?25lco[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnt[34h[?25h[?25l [34h[?25h[?25l >[34h[?25h[?25l [34h[?25h[?25l 0[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[21;1H[K[?25l[5;33H[34h[?25h[6;10H[7;19H[8;21H[9;21H[10;22H[11;25H[12;26H[13;21H[14;11H[15;12H[14;11H[?25l[21;1H[1m-- INSERT --[15;20r[0m[15;1H[L[1;21r[21;1H[1m-- INSERT --[15;7H[34h[?25h[?25l[0m <[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l e[34h[?25h[?25len[34h[?25h[?25lnd[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[21;1H[K[?25l[15;15H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 56L, 1531C written"search.html.erb" 56L, 1531C written[15;15H[34h[?25h[16;12H[17;11H[18;15H[19;12H[20;15H[?25l[1;20r[20;1H
-[1;21r[20;10H <td></td>[21;1H[K[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% @reports.each do |r| %>[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H <tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',[20;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>[20;15H[34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[19;15H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',[20;15H[34h[?25h[18;15H[17;15H[16;15H[15;14H[14;15H[13;15H[12;15H[11;15H[10;15H[9;15H[8;12H[7;15H[6;15H[5;13H[4;15H[3;15H[2;15H[1;15H[?25l[1;20r[1;1H[L[1;21r[1;10H <td></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td></td>[20;1H[94m@                                                                                 [1;15H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;10H <td>Not found</td>[1;15H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% if @reports.count == 0 %>[1;15H[34h[?25h[2;12H[3;15H[4;15H[3;15H[?25l[3;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',[3;11H[34h[?25h[?25l[3;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>[3;11H[34h[?25h[?25l[3;20r[20;1H
-[1;21r[20;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-in[20;1H[94m@                                                                                 [3;11H[34h[?25h[?25l[3;20r[0m[20;1H
-[1;21r[19;1H            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[3;11H[34h[?25h[?25l[3;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',[3;11H[34h[?25h[?25l[3;20r[20;1H
-[1;21r[20;14H report_path(r),[3;11H[34h[?25h[?25l[3;20r[20;1H
-[1;21r[20;14H :method => :delete,[3;9H[34h[?25h[?25l[21;1H[1m-- INSERT --[3;20r[0m[3;1H[L[1;21r[21;1H[1m-- INSERT --[3;9H[34h[?25h[?25l[0m  [34h[?25h[?25l N[34h[?25h[?25lNo[34h[?25h[?25lot[34h[?25h[?25l [34h[?25h[?25l F[34h[?25h[?25lFo[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnd[34h[?25h[?25l[3;19H[K[3;19H[34h[?25h[?25l[3;18H[K[3;18H[34h[?25h[?25l[3;17H[K[3;17H[34h[?25h[?25l[3;16H[K[3;16H[34h[?25h[?25l[3;15H[K[3;15H[34h[?25h[?25l f[34h[?25h[?25lfo[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnd[34h[?25h[21;1H[K[?25l[3;19H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 50L, 1402C written"search.html.erb" 50L, 1402C written[3;19H[34h[?25h[2;12H[1;19H[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>[21;1H[K[1;11H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% end %>[20;1H[94m@                                                                                 [1;15H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;6H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th>[1;18H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>[1;19H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>[34h[?25h[2;19H[3;18H[4;19H[5;11H[6;15H[7;12H[8;11H[9;19H[10;12H[11;19H[10;12H[11;11H[?25l[21;1H[1m-- INSERT --[11;11H[34h[?25h[?25l[0m <Not found[11;12H[34h[?25h[?25l<tNot found[11;13H[34h[?25h[?25ltdNot found[11;14H[34h[?25h[?25ld>Not found[11;15H[34h[?25h[21;1H[K[?25l[11;14H[34h[?25h[9C[?25l[21;1H[1m-- INSERT --[11;24H[34h[?25h[?25l[0md<[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[21;1H[K[?25l[11;28H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 50L, 1411C written"search.html.erb" 50L, 1411C written[11;28H[34h[?25h[10;12H[9;28H[8;11H[7;12H[6;15H[5;11H[4;21H[3;26H[2;25H[1;22H[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>[21;1H[K[1;21H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>제목</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% if @reports.count > 0 %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[1;28H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[34h[?25h[2;25H[3;28H[4;11H[5;28H[6;10H[7;19H[8;21H[9;21H[10;22H[11;25H[12;26H[13;21H[14;11H[15;15H[16;12H[17;11H[18;28H[19;12H[20;28H[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% @reports.each do |r| %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H <tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[20;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>[34h[?25h[19;20H[18;21H[17;28H[16;28H[15;12H[14;28H[13;15H[12;13H[11;28H[10;12H[9;28H[8;11H[7;12H[6;15H[5;11H[6;15H[7;12H[8;11H[9;28H[10;12H[11;28H[12;13H[13;15H[14;28H[15;12H[16;28H[17;28H[18;21H[19;20H[20;23H[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>[20;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>[20;28H[34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[19;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H report_path[106m([0mr[106m)[0m,[34h[?25h[?25l[1;20r[20;1H
-[1;21r[19;26H(r)[20;14H :method => :delete,[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[20;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[20;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[20;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H </td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H </tbody>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H </table>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[20;28H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H 리포트 등록 &raquo;[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H</div>[34h[?25h[19;11H[18;23H[17;28H[16;2H[15;10H[14;12H[13;15H[12;13H[11;15H[10;28H[9;28H[8;28H[7;28H[?25l[6;26H[106m([0mr[106m)[34h[?25h[?25l[0m(r)[5;28H[34h[?25h[3;28H[2;28H[1;28H[?25l[1;20r[1;1H[L[1;21r[1;10H <td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= ago(r.created_at) %></td>[1;28H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>$100</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>5</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>10</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= link_to r.title, '#' %>[1;28H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% @reports.each do |r| %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% end %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>Not found</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% if @reports.count == 0 %>[1;28H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% end %>[20;1H[94m@                                                                                 [1;15H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;6H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>제목</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[21;1H:[34h[?25h$[?25l[23m[24m[0m[H[J[1;12H <%= link_to '편집',[2;14H '#', :class => 'btn btn-mini' %>[3;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[4;1Hfo' %>[5;12H <%= link_to '지우기',[6;14H report_path(r),[7;14H :method => :delete,[8;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[9;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[10;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[11;10H </td>[12;8H </tr>[13;6H <% end %>
-    </tbody>
-  </table>
-
-  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>
-    리포트 등록 &raquo;
-  <% end %>
-</div>[34h[?25h[19;1H[18;1H    [7C    [17;5H= [8C[15C[17;15H[?25l ew_report_path, :class => 'btn btn-primary btn-large' do %>[17;74H[K[17;15H[34h[?25h[?25l w_report_path, :class => 'btn btn-primary btn-large' do %>[17;73H[K[17;15H[34h[?25h[?25l _report_path, :class => 'btn btn-primary btn-large' do %>[17;72H[K[17;15H[34h[?25h[?25l report_path, :class => 'btn btn-primary btn-large' do %>[17;71H[K[17;15H[34h[?25hreport[?25l[21;1H[1m-- INSERT --[17;21H[34h[?25h[?25l[0mts_path, :class => 'btn btn-primary btn-large' do %>[17;22H[34h[?25h[21;1H[K[?25l[17;21H[34h[?25h[18;21H    [?25l등록 &raquo;[18;17H[K[18;5H[34h[?25h[?25l &raquo;[18;12H[K[18;5H[34h[?25h[?25l
-
-
-[1m-- INSERT --[18;5H[34h[?25h[?25l[0m 뒤&raquo;[18;7H[34h[?25h[?25l로 &raquo;[18;10H[34h[?25h[21;1H[K[?25l[18;9H[34h[?25h[?25l
-
-
-:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 50L, 1398C written"search.html.erb" 50L, 1398C written[18;9H[34h[?25h[17;9Hnk_to [12C[17;15H[?25l[21;1H[1m-- INSERT --[0m[21;13H[K[17;14H , :class => 'btn btn-primary btn-large' do %>[17;60H[K[17;15H[34h[?25h[?25l :, :class => 'btn btn-primary btn-large' do %>[17;16H[34h[?25h[?25l:b, :class => 'btn btn-primary btn-large' do %>[17;17H[34h[?25h[?25lba, :class => 'btn btn-primary btn-large' do %>[17;18H[34h[?25h[?25lac, :class => 'btn btn-primary btn-large' do %>[17;19H[34h[?25h[?25lck, :class => 'btn btn-primary btn-large' do %>[17;20H[34h[?25h[21;1H[K[?25l[17;19H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 50L, 1391C written"search.html.erb" 50L, 1391C written[17;19H[34h[?25h[18;16H[?25l&l[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 50L, 1391C written"search.html.erb" 50L, 1391C written[18;11H[34h[?25h&laquo[?25l
-
-
-[1m-- INSERT --[0m[21;13H[K[18;17H[34h[?25h[?25l [34h[?25h[?25l 뒤[34h[?25h[?25l로[34h[?25h[21;1H[K[?25l[18;20H[34h[?25h[?25l &laquo; 뒤로[18;18H[K[18;5H[34h[?25h[?25l
-
-
-:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 50L, 1391C written"search.html.erb" 50L, 1391C written[18;5H[34h[?25h[17;5H[16;2H[15;5H[14;5H[13;5H[12;5H[11;5H[10;5H[9;5H[8;5H[7;5H[6;5H[5;5H[3;5H[2;5H[1;5H[?25l[1;20r[1;1H[L[1;21r[1;10H <td>[21;1H[K[1;5H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= ago(r.created_at) %></td>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>$100</td>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>5</td>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>10</td>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= link_to r.title, '#' %>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= r.id %></td>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% @reports.each do |r| %>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% end %>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H </tr>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>Not found</td>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% if @reports.count == 0 %>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% end %>[20;1H[94m@                                                                                 [1;5H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;6H </tr>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>제목</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>    [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>    [34h[?25h
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    [18;5H[17;5H[16;5H[15;5H[14;5H
-    
-    
-    
-    
-    
-    [?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>    [34h[?25h[19;5H[18;5H[17;5H[16;5H[15;5H[14;5H[13;5H[12;5H[11;5H[10;5H[9;5H[8;5H[7;5H
-    
-    
-    
-    [?25l[21;1H5 fewer lines[7;20r[7;1H[5M[1;21r[16;12H <%= link_to '편집',[17;14H '#', :class => 'btn btn-mini' %>[18;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[19;1Hfo' %>[20;12H <%= link_to '지우기',[21;1H[K[21;1H5 fewer lines[7;7H[34h[?25h[6;7H[5;7H[4;7H[3;7H[2;7H[1;7H[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>[21;1H[K[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>[20;1H[94m@                                                                                 [1;7H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;8H <th>View</th>[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>제목</th>[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% if @reports.count > 0 %>[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2>[1;7H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[1;7H[34h[?25h[2;7H[3;7H[4;7H[5;7H[?25l[5;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[5;7H[34h[?25h[4;7H[3;7H[2;7H[?25l[3;20r[3;1H[L[1;21r[3;6H <% if @reports.count > 0 %>[3;7H[34h[?25h[?25l     <% if @reports.count > 0 %>[3;33H[K[3;1H[34h[?25h[?25l    <% if @reports.count > 0 %>[3;32H[K[3;1H[34h[?25h[?25l   <% if @reports.count > 0 %>[3;31H[K[3;1H[34h[?25h[?25l  <% if @reports.count > 0 %>[3;30H[K[3;1H[34h[?25h[?25l <% if @reports.count > 0 %>[3;29H[K[3;1H[34h[?25h[?25l<% if @reports.count > 0 %>[3;28H[K[3;1H[34h[?25h
-
-
-
-
-
-
-
-
-
-
-
-[?25l[15;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[15;5H[34h[?25h
-    
-    
-    
-    
-    [?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>    [34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[19;5H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H report_path(r),    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :method => :delete,    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H </td>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H </tbody>    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H </table>  </[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <%= link_to :back, :class => 'btn btn-primary btn-large' do %>  <%[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H &laquo; 뒤로    [34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <% end %>  <%[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H</div>[34h[?25h[19;5H[18;5H[17;5H[16;2H[?25l[21;1H[1m-- INSERT --[16;2H[34h[?25h[0m[21;1H[K[16;1H[?25l[34h[?25h[?25l[21;1H[1m-- INSERT --[16;1H[34h[?25h[?25l[0m%[34h[?25h[?25l [34h[?25h[?25l<[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l e[34h[?25h[?25lel[34h[?25h[?25lls[34h[?25h[?25lse[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[?25l[17;20r[17;1H[L[1;21r[21;1H[1m-- INSERT --[17;1H[34h[?25h[?25l[18;20r[0m[18;1H[L[1;21r[21;1H[1m-- INSERT --[18;1H[34h[?25h[?25l[0m<[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l e[34h[?25h[?25len[34h[?25h[?25lnd[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[21;1H[K[?25l[18;9H[34h[?25h[17;1H[?25l[21;1H[1m-- INSERT --[17;1H[34h[?25h[?25l[0mN[34h[?25h[?25lNo[34h[?25h[?25lot[34h[?25h[?25l [34h[?25h[?25l f[34h[?25h[?25lfo[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnd[34h[?25h[21;1H[K[?25l[17;9H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 46L, 1290C written"search.html.erb" 46L, 1290C written[17;9H[34h[?25h[18;9H[17;9H[?25l[21;1H[1m-- INSERT --[0m[21;13H[K[17;1H[34h[?25h[?25l<Not found<[34h[?25h[?25l<hNot found<h[34h[?25h[?25lh3Not found<h3[34h[?25h[?25l3>Not found<h3>[34h[?25h[21;1H[K[?25l[17;4H[34h[?25h[9C[?25l[21;1H[1m-- INSERT --[17;14H[34h[?25h[?25l[0md<[34h[?25h[?25l</[34h[?25h[?25l/h[34h[?25h[?25lh3[34h[?25h[?25l3>[34h[?25h[21;1H[K[?25l[17;18H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 46L, 1299C written"search.html.erb" 46L, 1299C written[17;18H[34h[?25h[18;9H[19;18H[20;15H[19;18H[18;9H[17;18H[18;9H[?25l
-
-
-[1m-- INSERT --[0m[21;13H[K[19;3H[K[20;2H <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[19;1H[34h[?25h[21;1H[K[?25l[19;1H[34h[?25h[18;1H[17;1H[16;1H[15;1H[14;1H[13;1H[12;1H[11;1H[10;1H[9;1H[8;1H[7;1H[6;1H[5;1H[3;1H[2;1H[1;1H[?25l[1;20r[1;1H[L[1;21r[1;10H <td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= ago(r.created_at) %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>$100</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>5</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>10</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= link_to r.title, '#' %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% @reports.each do |r| %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>[20;1H[94m@                                                                                 [1;1H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;8H <th>제목</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% if @reports.count > 0 %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[34h[?25h
-
-
-
-
-
-
-
-
-
-[10;1H[9;1H[8;1H[7;1H[6;1H[5;1H[4;1H[3;1H
-[3;1H<% if @[7C.count > [?25l  0 %>[3;27H[K[3;22H[34h[?25h[?25l[21;1H[1m-- INSERT --[3;22H[34h[?25h[?25l[0m = 0 %>[34h[?25h[?25l== 0 %>[34h[?25h[21;1H[K[?25l[3;23H[34h[?25h[?25l[21;1H[1m-- INSERT --[4;20r[0m[4;1H[L[1;21r[21;1H[1m-- INSERT --[4;1H[34h[?25h[?25l[5;20r[0m[5;1H[L[1;21r[21;1H[1m-- INSERT --[5;1H[34h[?25h[?25l[0m<[34h[?25h[?25l<%[34h[?25h[?25l [34h[?25h[?25l e[34h[?25h[?25lel[34h[?25h[?25lls[34h[?25h[?25lse[34h[?25h[?25l [34h[?25h[?25l %[34h[?25h[?25l%>[34h[?25h[21;1H[K[?25l[5;10H[34h[?25h[6;10H[7;10H[8;10H[9;10H[10;10H[11;10H[12;10H[13;10H[14;10H[15;10H[16;10H[17;10H[18;10H[19;10H[20;10H[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>[20;10H[34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[19;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H report_path(r),[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :method => :delete,[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H </td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H </tbody>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H </table>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H<% else %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H<h3>Not found</h3>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H<% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H &laquo; 뒤로[20;10H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <% end %>[34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;1H</div>
-[94m~                                                                                 [19;7H[34h[?25h[18;10H[17;10H[16;10H[15;1H[14;9H[13;10H[12;10H[?25l[12;20r[0m[20;1H
-[1;21r[20;1H[94m~                                                                                 [12;1H[34h[?25h[?25l[12;20r[0m[20;1H
-[1;21r[20;1H[94m~                                                                                 [12;1H[34h[?25h[0m<[11;2H[10;2H[9;2H[8;2H[7;2H[6;2H[5;2H[4;2H[3;2H[2;2H[1;2H[?25l[1;20r[1;1H[2L[1;21r[1;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[2;1Hfo' %>[1;2H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;14H '#', :class => 'btn btn-mini' %> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;12H <%= link_to '편집', [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= ago(r.created_at) %></td> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>$100</td> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>5</td> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>10</td> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= link_to r.title, '#' %> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= r.id %></td> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% @reports.each do |r| %> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H </tr> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>[20;1H[94m@                                                                                 [1;2H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;8H <th>제목</th> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% else %><[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% if @reports.count == 0 %><[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2> [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit"><[34h[?25h
- 
-<
-[?25l[21;1H[1m-- INSERT --[4;1H[34h[?25h[?25l[0m  [34h[?25h[?25l  [34h[?25h[?25l[34h[?25h[?25l <[34h[?25h[?25l<t[34h[?25h[?25lta[34h[?25h[?25lab[34h[?25h[?25lbl[34h[?25h[?25lle[34h[?25h[?25l [34h[?25h[?25l c[34h[?25h[?25lcl[34h[?25h[?25lla[34h[?25h[?25las[34h[?25h[?25lss[34h[?25h[?25ls=[34h[?25h[?25l='[34h[?25h[?25l't[34h[?25h[?25lta[34h[?25h[?25lab[34h[?25h[?25lbl[34h[?25h[?25lle[34h[?25h[?25le>[34h[?25h[?25l[5;20r[5;1H[L[1;21r[21;1H[1m-- INSERT --[5;3H[34h[?25h[?25l[0m <[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltb[34h[?25h[?25lbl[34h[?25h[?25lla[34h[?25h[?25l[5;8H[K[5;8H[34h[?25h[?25l[5;7H[K[5;7H[34h[?25h[?25l[5;6H[K[5;6H[34h[?25h[?25lta[34h[?25h[?25lab[34h[?25h[?25lbl[34h[?25h[?25lle[34h[?25h[?25le>[34h[?25h[21;1H[K[?25l[5;10H[34h[?25h[4;10H[?25l[21;1H[1m-- INSERT --[5;20r[0m[5;1H[L[1;21r[21;1H[1m-- INSERT --[5;3H[34h[?25h[?25l[0m  [34h[?25h[?25l <[34h[?25h[?25l<t[34h[?25h[?25ltb[34h[?25h[?25lbo[34h[?25h[?25lod[34h[?25h[?25ldy[34h[?25h[?25ly>[34h[?25h[?25l[6;20r[6;1H[L[1;21r[21;1H[1m-- INSERT --[6;5H[34h[?25h[?25l[0m <[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltb[34h[?25h[?25lbo[34h[?25h[?25lod[34h[?25h[?25ldy[34h[?25h[?25ly>[34h[?25h[21;1H[K[?25l[6;12H[34h[?25h[5;11H[?25l[21;1H[1m-- INSERT --[6;20r[0m[6;1H[L[1;21r[21;1H[1m-- INSERT --[6;5H[34h[?25h[?25l[0m  [34h[?25h[?25l <[34h[?25h[?25l<t[34h[?25h[?25ltr[34h[?25h[?25lr>[34h[?25h[?25l[7;20r[7;1H[L[1;21r[21;1H[1m-- INSERT --[7;7H[34h[?25h[?25l[0m <[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltr[34h[?25h[?25lr>[34h[?25h[21;1H[K[?25l[7;11H[34h[?25h[6;10H[?25l[21;1H[1m-- INSERT --[7;20r[0m[7;1H[L[1;21r[21;1H[1m-- INSERT --[7;7H[34h[?25h[?25l[0m  [34h[?25h[?25l <[34h[?25h[?25l<t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[?25l>N[34h[?25h[?25lNo[34h[?25h[?25lot[34h[?25h[?25l [34h[?25h[?25l f[34h[?25h[?25lfo[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnd[34h[?25h[?25ld<[34h[?25h[?25l</[34h[?25h[?25l/t[34h[?25h[?25ltd[34h[?25h[?25ld>[34h[?25h[21;1H[K[?25l[7;26H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 53L, 1391C written"search.html.erb" 53L, 1391C written[7;26H[34h[?25h[8;11H[9;12H[10;10H[11;10H[12;26H[11;10H[10;10H[9;12H[8;11H[7;26H[6;10H[5;11H[4;22H[3;26H[4;22H[?25l[21;1H[1m-- INSERT --[0m[21;13H[K[4;22H[34h[?25h[?25le'>[34h[?25h[21;1H[K[?25l[4;22H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 53L, 1392C written"search.html.erb" 53L, 1392C written[4;22H[34h[?25h[5;11H[6;10H[5;11H[4;22H[?25l[21;1H[1m-- INSERT --[0m[21;13H[K[4;22H[34h[?25h[?25le '>[34h[?25h[?25l t'>[34h[?25h[?25lta'>[34h[?25h[?25lab'>[34h[?25h[?25lbl'>[34h[?25h[?25lle'>[34h[?25h[?25le-'>[34h[?25h[?25l-s'>[34h[?25h[?25lst'>[34h[?25h[?25ltr'>[34h[?25h[?25lri'>[34h[?25h[?25lip'>[34h[?25h[?25lpe'>[34h[?25h[?25led'>[34h[?25h[21;1H[K[?25l[4;35H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 53L, 1406C written"search.html.erb" 53L, 1406C written[4;35H[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25h$[?25l[23m[24m[0m[H[J[1;14H '#', :class => 'btn btn-mini' %>[2;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[3;1Hfo' %>[4;12H <%= link_to '지우기',[5;14H report_path(r),[6;14H :method => :delete,[7;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[8;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[9;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[10;10H </td>[11;8H </tr>[12;6H <% end %>
-    </tbody>
-  </table>
-<% end %>
-
-  <%= link_to :back, :class => 'btn btn-primary btn-large' do %>
-    &laquo; 뒤로
-  <% end %>
-</div>[34h[?25h[19;1H[18;1H[17;1H  <%= [8C:back, :class => 'btn btn-[8Cbtn[?25l -large' do %>[17;63H[K[17;49H[34h[?25h[?25l large' do %>[17;61H[K[17;49H[34h[?25h[?25l arge' do %>[17;60H[K[17;49H[34h[?25h[?25l rge' do %>[17;59H[K[17;49H[34h[?25h[?25l ge' do %>[17;58H[K[17;49H[34h[?25h[?25l e' do %>[17;57H[K[17;49H[34h[?25h[?25l ' do %>[17;56H[K[17;49H[34h[?25h[?25ly' do %>[17;55H[K[17;48H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 53L, 1396C written"search.html.erb" 53L, 1396C written[17;48H[34h[?25h[16;1H[15;9H[14;10H[13;12H[12;15H[11;13H[10;15H[9;48H[8;48H[7;48H[6;33H[5;29H[4;33H[2;48H[1;46H[?25l[1;20r[1;1H[L[1;21r[1;12H <%= link_to '편집',[21;1H[K[1;31H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= ago(r.created_at) %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>$100</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>5</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>10</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= link_to r.title, '#' %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% @reports.each do |r| %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>[20;1H[94m@                                                                                 [1;21H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;8H <th>제목</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% else %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H </table>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </tbody>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <td>Not found</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% if @reports.count == 0 %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[34h[?25h[2;25H[3;28H[4;37H[5;11H[6;10H[7;26H[6;10H[5;11H[4;37H[?25l[4;20r[20;1H
-[1;21r[20;8H <th>액션</th>[4;5H[34h[?25h[?25l[4;20r[20;1H
-[1;21r[20;6H </tr>[4;7H[34h[?25h[?25l[4;20r[20;1H
-[1;21r[20;4H </thead>[4;9H[34h[?25h[?25l[4;20r[20;1H
-[1;21r[20;4H <tbody>[4;7H[34h[?25h[?25l[4;20r[20;1H
-[1;21r[20;6H <% @reports.each do |r| %>[4;5H[34h[?25h[?25l[4;20r[20;1H
-[1;21r[20;8H <tr>[4;3H[34h[?25h[?25l[4;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[4;1H[34h[?25h[?25l[21;1H[1m-- INSERT --[4;20r[0m[4;1H[L[1;21r[21;1H[1m-- INSERT --[4;1H[34h[?25h[?25l[0m<[34h[?25h[?25l<b[34h[?25h[?25lbr[34h[?25h[?25l [34h[?25h[?25l /[34h[?25h[?25l/>[34h[?25h[21;1H[K[?25l[4;6H[34h[?25h[3;6H[?25l[21;1H[1m-- INSERT --[4;20r[0m[4;1H[L[1;21r[21;1H[1m-- INSERT --[4;1H[34h[?25h[?25l[0m<[34h[?25h[?25l<h[34h[?25h[?25l[4;2H[K[4;2H[34h[?25h[?25l<b[34h[?25h[?25lbr[34h[?25h[?25l [34h[?25h[?25l /[34h[?25h[?25l/>[34h[?25h[?25l[5;20r[5;1H[L[1;21r[21;1H[1m-- INSERT --[5;1H[34h[?25h[?25l[0m<[34h[?25h[?25l<h[34h[?25h[?25lh3[34h[?25h[?25l3>[34h[?25h[?25l>N[34h[?25h[?25lNo[34h[?25h[?25lot[34h[?25h[?25ltf[34h[?25h[?25l[5;8H[K[5;8H[34h[?25h[?25l [34h[?25h[?25l f[34h[?25h[?25lfo[34h[?25h[?25lou[34h[?25h[?25lun[34h[?25h[?25lnd[34h[?25h[?25ld<[34h[?25h[?25l</[34h[?25h[?25l/h[34h[?25h[?25lh3[34h[?25h[?25l3>[34h[?25h[21;1H[K[?25l[5;18H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 49L, 1305C written"search.html.erb" 49L, 1305C written[5;18H[34h[?25h[4;6H[3;18H[2;18H[?25l[2;20r[20;1H
-[1;21r[20;6H <% @reports.each do |r| %>[21;1H[K[2;1H[34h[?25h
-
-
-
-[?25l[7;20r[7;1H[L[1;21r[7;2H <h2>Search results</h2>  [34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 49L, 1305C written"search.html.erb" 49L, 1305C written[7;3H[34h[?25h[6;3H[5;3H[4;3H[?25lh2[34h[?25h[15C[?25lh2[34h[?25h[3;6H[?25l[3;20r[20;1H
-[1;21r[20;6H <% @reports.each do |r| %>[21;1H[K[3;1H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 48L, 1298C written"search.html.erb" 48L, 1298C written[3;1H[34h[?25h
-[?25l[4;20r[20;1H
-[1;21r[20;8H <tr>[21;1H[K[4;1H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 47L, 1291C written"search.html.erb" 47L, 1291C written[4;1H[34h[?25h[3;1H[?25l[4;20r[4;1H[L[1;21r[4;1H<br />[21;1H[K[4;1H[34h[?25h[?25l[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 48L, 1298C written"search.html.erb" 48L, 1298C written[4;1H[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25hq[?25l:[21;2H[K[21;2H[34h[?25h[?25l[4;1H[34h[?25h[3;1H[2;1H
-
-
-[4;1H[3;1H[2;1H
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[?25l[1;20r[20;1H
-[1;21r[20;8H <tr>[21;1H[K[20;1H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>[34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[19;1H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H report_path(r),[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :method => :delete,[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H </td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H </tbody>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H </table>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H<% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <%= link_to :back, :class => 'btn btn-primary' do %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H &laquo; 뒤로[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H</div>[34h[?25h[19;1H[18;1H[17;1H[16;1H[15;1H[14;1H[13;1H[12;1H[11;1H[10;1H[9;1H[8;1H[7;1H[6;1H[5;1H[4;1H[2;1H[1;1H[?25l[1;20r[1;1H[L[1;21r[1;12H <%= link_to '편집',[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= ago(r.created_at) %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>$100</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>5</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td>10</td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= link_to r.title, '#' %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <% @reports.each do |r| %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <tbody>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H </thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H </tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>액션</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>올린 날짜</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Revenues</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>Sales</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>View</th>[20;1H[94m@                                                                                 [1;1H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;8H <th>제목</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <th>ID</th>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tr>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <thead>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <table class='table table-striped'>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Search results</h2>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% else %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<br />[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<h2>Not found</h2>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<% if @reports.count == 0 %>[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit">[34h[?25h
-
-
-
-
-[5;1H
-[5;1H[4;1H[3;1H[2;1H
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[?25l[1;20r[20;1H
-[1;21r[20;8H <tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= r.id %></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= link_to r.title, '#' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>10</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>5</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>$100</td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td><%= ago(r.created_at) %></td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H <td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '편집',[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H '#', :class => 'btn btn-mini' %>[34h[?25h[?25l[1;20r[1;1H[2M[1;21r[19;12H <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-inn[20;1Hfo' %>[19;1H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '지우기',[34h[?25h[18;1H
-
-[?25l[1;20r[20;1H
-[1;21r[20;14H report_path(r),[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :method => :delete,[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;14H :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '공유', '#', :class => 'btn btn-mini' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;12H <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;10H </td>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;8H </tr>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;6H <% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H </tbody>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H </table>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H<% end %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;1H[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;2H <%= link_to :back, :class => 'btn btn-primary' do %>[34h[?25h[?25l[1;20r[20;1H
-[1;21r[20;4H &laquo; 뒤로[34h[?25h[19;1H[18;1H[17;1H[?25l[21;1H:[34h[?25h'a,. s/^/  /[?25l42 substitutions on 42 lines[18;20r[18;1H[L[1;21r[1;10H   <td>[2;12H   <%= link_to '편집',[3;14H   '#', :class => 'btn btn-mini' %>[4;12H   <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn--[5;1Hinfo' %>[6;12H   <%= link_to '지우기',[7;14H   report_path(r),[8;14H   :method => :delete,[9;14H   :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %%[10;1H>[10;13H[K[11;12H   <%= link_to '공유[12;10H     <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[13;8H     </td>[14;6H     </tr
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>[21;1H[K[21;1H42 substitutions on 42 lines[18;3H[34h[?25h[?25l[21;1H[K[21;1H:[34h[?25hw[?25l"search.html.erb" "search.html.erb" 48L, 1382C written"search.html.erb" 48L, 1382C written[18;3H[34h[?25h[17;3H[16;3H[15;3H[14;3H[13;3H[12;3H[11;3H[9;3H[8;3H[7;3H[6;3H[4;3H[3;3H[2;3H[1;3H[?25l[1;20r[1;1H[L[1;21r[1;12H <td><%= ago(r.created_at) %></td>[21;1H[K[1;3H[34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;12H <td>$100</td>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;12H <td>5</td>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;12H <td>10</td>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;12H <td><%= link_to r.title, '#' %>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;12H <td><%= r.id %></td>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <tr>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <% @reports.each do |r| %>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <tbody>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H </thead>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H </tr>[20;1H[94m@                                                                                 [1;3H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;10H <th>액션</th>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <th>올린 날짜</th>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <th>Revenues</th>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <th>Sales</th>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <th>View</th>[20;1H[94m@                                                                                 [1;3H[34h[?25h[?25l[1;20r[0m[1;1H[L[1;21r[1;10H <th>제목</th>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;10H <th>ID</th>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;8H <tr>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;6H <thead>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <table class='table table-striped'>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;4H <h2>Search results</h2>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <% else %>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <br />  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <h2>Not found</h2>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;2H <% if @reports.count == 0 %>  [34h[?25h[?25l[1;20r[1;1H[L[1;21r[1;1H<div class="hero-unit"><d[34h[?25h[?25l[21;1H:[34h[?25hq[?25l[21;1H[K[21;1H[?1l>[34h[?25h[?1049l~/code/kr/app/views/reports% cd ..
-~/code/kr/app/views% cd ..
-~/code/kr/app% cd ..
-~/code/kr% ls
-Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/
-Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript
-Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/
-~/code/kr% git diff
-[?1h=diff --git a/app/controllers/reports_controller.rb b/app/controllers/reports_contr[m
-index 517d80d..ac16958 100644[m
---- a/app/controllers/reports_controller.rb[m
-+++ b/app/controllers/reports_controller.rb[m
-@@ -1,7 +1,11 @@[m
- [m
- class ReportsController < ApplicationController[m
-   protect_from_forgery[m
--  before_filter :authenticate_user!, :except => [:index][m
-+  before_filter :authenticate_user!, :except => [:index, :search][m
-+[m
-+  def search[m
-+    @reports = Report.text_search(params[:query]).order('id DESC')[m
-+  end[m
- [m
-   def index[m
-     if user_signed_in?[m
-diff --git a/app/models/report.rb b/app/models/report.rb[m
-index 5097f3d..500622e 100644[m
---- a/app/models/report.rb[m
-:[K[K+++ b/app/models/report.rb[m
-@@ -9,4 +9,12 @@ class Report < ActiveRecord::Base[m
- [m
-   validates_attachment :document, :presence => true,[m
-     :size => { :in => 0..9999.kilobytes }[m
-+[m
-+  def self.text_search( query )[m
-+    if query.present?[m
-+      where("title like :q", q: "%#{query}%")[m
-+    else[m
-+      scoped[m
-+    end[m
-+  end[m
- end[m
-diff --git a/app/views/layouts/_header.html.erb b/app/views/layouts/_header.html.e[m
-index 897c899..aa77a7f 100644[m
---- a/app/views/layouts/_header.html.erb[m
-+++ b/app/views/layouts/_header.html.erb[m
-@@ -16,8 +16,8 @@[m
-         <% if user_signed_in? %>[m
-:[K[K           <ul class="nav">[m
-             <li>[m
--              <%= form_tag '#', method: :get, class: 'navbar-search' do %>[m
--                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-+              <%= form_tag search_path, method: :get, class: 'navbar-search' do %[m
-+                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-               <% end %>[m
-             </li>[m
-             <li><%= link_to "마이 페이지", reports_path %></li>[m
-diff --git a/config/routes.rb b/config/routes.rb[m
-index 0246b9c..2923833 100644[m
---- a/config/routes.rb[m
-+++ b/config/routes.rb[m
-@@ -1,5 +1,8 @@[m
- Kr::Application.routes.draw do[m
-   resources :reports[m
-+[m
-+  match 'search' => 'reports#search'[m
-+[m
- #  match '/reports', to: 'reports#index', :as => :reports, :via => :get[m
-:[K[K #  match '/reports/:id', to: 'reports#show', :as => :report, :via => :get[m
- #  match '/reports/:id', to: 'reports#destroy', :via => :delete[m
-diff --git a/typescript b/typescript[m
-index 78e4fbb..1fe5371 100644[m
---- a/typescript[m
-+++ b/typescript[m
-@@ -478,4 +478,372 @@ Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[[m
- Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/[m
- Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript[m
- Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/[m
--~/code/kr% [m
-\ No newline at end of file[m
-+~/code/kr% cd app/views/[m
-+~/code/kr/app/views% ls[m
-+[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/[m
-+~/code/kr/app/views% cd reports/[m
-+~/code/kr/app/views/reports% ls[m
-+_error_messages.html.erb  new.html.erb[m
-+index.html.erb            search.html.erb[m
-+~/code/kr/app/views/reports% vi search.html.erb [m
-:[K[K+[23m[24m[0m"search.html.erb" [3m^M[23m"search.html.erb" 45L, 1326C<div class="hero-unit">[m
-+  <p>Search results</p>[m
-+  <table class='table table-striped'>[m
-+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-+    </thead>[m
-+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-+    </tbody>[m
-+  </table>[m
-+[m
-+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>[m
-+[m
-+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+    리포트 등록 &raquo;[m
-+  <% end %>[m
-+</div>[m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+    </thead>[m
-+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-+  <table class='table table-striped'>[m
-:[K[K+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th><div class[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1361C written[3m^M[23m"search.html.erb" 4[m
-+[m
-+[m
-+[1m-- INSERT --[0m[3m^H[23mts[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1362C written[3m^M[23m"search.html.erb" 4[m
-+ <% @reports.each do |r| %>[m
-+ <tr[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[1m-- INSERT --[0m[1m-- INSERT --[0m[3m^H[23m [1m<td>,[0m>[1m</td[0m> <td></td> [m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 54L, 1481C written[3m^M[23m"search.html.erb" 5[m
-+ </tr>[m
-+ <% e <th>ID</th><td>[1m-- INSERT --[0m> result</td[1m>[0mx result</td[1m>[0m result</td[1m>[0mresult</td[m
-+ <td></td>[m
-+ <td>[m
-+ <td>[m
-:[K[K+ <td>[m
-+ <td>[m
-+ <td>[m
-+ </tr[m
-+ <% end %[m
-+ <% @reports.each do |r| %>[m
-+ <tr[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[m
-+ <td>10</td>[m
-+ <td>[m
-+ <td>$100</td>[m
-+ <td><%= ago(r.created_at) %></td>[m
-+ <td[m
-+ <%= link_to '편집',[m
-+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-+ <%= link_to '지우기', <td> <td></td>[94m@                                           [m
-+ <%= link_to '편집',[m
-+ '#', :class => 'btn btn-mini' %>[m
-+ <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-in[94m@         [m
-:[K[K+            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-i[m
-+ <%= link_to '지우기',[m
-+ report_path(r),[m
-+ :method => :delete,[1m-- INSERT --[0m[1m-- INSERT --[0m [1m No[0mt[1m Foun[0m [1mfoun[0md:w[3m^M[23m"search.html.erb"[m
-+ </tr[m
-+ <% end %[m
-+ <% @reports.each do |[m
-+ <tr[m
-+ <td><%= r.id %></[m
-+ <td><%= link_to r.title, '#' %>[m
-+ <td>10</td[m
-+ <td>5</td[m
-+ <td>$100</td[m
-+ <td><%= ago(r.created_at) %></td>[m
-+ <td[m
-+ <%= link_to '[m
-+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-+ <%= link_to [m
-+ report_path[106m([0mr[106m)[0m[3m^H[23m[m
-+(r) :method => :d[m
-:[K[K+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-+ </td[m
-+ </tr[m
-+ <% end %[m
-+ </tbody[m
-+ </table[m
-+[m
-+ <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+ 리포트 등록 &raquo[m
-+ <% end %[m
-+</div>[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[106m([0mr[106m[0m[3m^H^H[23m(r) <td <td><%= ago(r.created_a[m
-+    </tbody>[m
-+  </table>[m
-+[m
-+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+    리포트 등록 &raquo;[m
-+  <% end %>[m
-+</div>[3m^M^G[23m    [3m^M[23m    =[1m [0mew_report_path, :class => 'btn btn-primary btn-large' do % [m
-:[K[K+[m
-+[m
-+[1m-- INSERT --[0m[3m^H[23m 뒤&raquo;로 &raquo;[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1398C written[3m^M[23m"search.html.erb" 5[m
-+[m
-+[m
-+[1m-- INSERT --[0m[3m^H^H^H^H^H^H^H^H^H^H^H^H^H[23m &laquo; 뒤로[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1391C written[3m^M[23m"search.html.erb" 5[m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-:[K[K+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+ <td><%= link_to r.title, '#' %>[3m^M[23m    [m
-+ <td>10</td>[3m^M[23m    [m
-+ <td>5</td>[3m^M[23m    [m
-+ <td>$100</td>[3m^M[23m    [m
-:[K[K+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-+ <td>[3m^M[23m    [m
-+    [m
-+    [m
-+    [m
-+    5 fewer lines <%= link_to '편집', '#', :class => 'btn btn-mini' %> <%= link_t[m
-+ <td><%= link_to r.title, '#' %> <% if @reports.count > 0 %>[3m^G^M[23m     <% if @repor[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+ <td><%= link_to r.title, '#' %>[m
-:[K[K+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+ <td>10</td>[3m^M[23m    [m
-+ <td>5</td>[3m^M[23m    [m
-+ <td>$100</td>[3m^M[23m    [m
-+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-+ <td>[3m^M[23m    [m
-+ <%= link_to '편집',[3m^M[23m    [m
-+ '#', :class => 'btn btn-mini' %>[3m^M[23m     <%= link_to '다운로드', r.document.url, :[m
-+ <%= link_to '지우기',[3m^M[23m    [m
-+ report_path(r),[3m^M[23m    [m
-+ :method => :delete,[3m^M[23m    [m
-+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m    [m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-+ </td>[3m^M[23m    [m
-+ </tr>[3m^M[23m    [m
-:[K[K+ <% end %>[3m^M[23m    [m
-+ </tbody>[3m^M[23m    [m
-+ </table>[3m^M[23m  </[m
-+[m
-+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[3m^M[23m  <%[m
-+ &laquo; 뒤로[3m^M[23m    [m
-+ <% end %>[3m^M[23m  <%[m
-+</di[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[1m-- INSERT --[0m[3m^G^G^G[23m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m>[1m-- IN[m
-+[m
-+[m
-+[1m-- INSERT --[0m <%= link_to :back, :class => 'btn btn-primary btn-large' do %> <td>[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-:[K[K+[m
-+<% if @.count[1m [0m 0 %>[1m-- INSERT --[0m[3m^H[23m [1m=[0m=[1m-- INSERT --[0m[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[m
-+ <td>10</td>[m
-+ <td>5</td>[m
-+ <td>$100</td>[m
-+ <td><%= ago(r.created_at) %></td>[m
-+[m
-+ <%= link_to '편집',[m
-+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-+ <%= link_to '지우기',[m
-+ report_path(r),[m
-+ :method => :delete,[m
-+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-+[m
-+ <[m
-+ <% [m
-:[K[K+ </tbo[m
-+ </table[m
-+<% else %[m
-+<h3>Not found</h3>[m
-+<% end %[m
-+[m
-+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-+ &laquo; 뒤로[m
-+ <% end </div>[m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+ [m
-+<[m
-+[1m-- INSERT --[0m [1m <tabl[0me[1m class='table[0m>[1m-- INSERT --[0m[3m^H[23m [1m</tbl[0mt[1mable[0m>[1m-- INSERT --[0m[1m-- INSERT[m
-+    </tbody>[m
-+  </table>[m
-+<% end %>[m
-+[m
-+  <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-:[K[K+    &laquo; 뒤로[m
-+  <% end %>[m
-+</div>[3m^M[23m  <%= :back, :class => 'btn btn -large' do % large' do % arge' do % rge' [m
-+ <th>액션</th>[m
-+ </tr>[m
-+ </thead>[m
-+ <tbody>[m
-+ <% @reports.each do |r| %>[m
-+ <tr>[m
-+ <td><%= r.id %></td>[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<b[0mr[1m /[0m>[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m<[1mb[0mr[1m /[0m[m
-+ <% @reports.each do |r| %>[m
-+[m
-+[m
-+[m
-+ <h2>Search results</h2>[3m^M[23m  [3m^G[23m:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 49L, 1305[m
-+ <% @reports.each do |r| %>:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1298C w[m
-+[m
-+ <tr>:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 47L, 1291C written[3m^M[23m"search.html.e[m
-+[m
-+[m
-:[K[K+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+ <tr>[m
-:[K[K+ <td><%= r.id %></td>[3m^M[23m[m
-+ <td><%= link_to r.title, '#' %>[3m^M[23m[m
-+ <td>10</td>[3m^M[23m[m
-+ <td>5</td>[3m^M[23m[m
-+ <td>$100</td>[3m^M[23m[m
-+ <td><%= ago(r.created_at) %></td>[3m^M[23m[m
-+ <td>[3m^M[23m[m
-+ <%= link_to '편집',[3m^M[23m[m
-+ '#', :class => 'btn btn-mini' %>[3m^M[23m <%= link_to '다운로드', r.document.url, :clas[m
-+ <%= link_to '지우기',[3m^M[23m[m
-+ report_path(r),[3m^M[23m[m
-+ :method => :delete,[3m^M[23m[m
-+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m[m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-+ </td>[3m^M[23m[m
-+ </tr>[3m^M[23m[m
-+ <% end %>[3m^M[23m[m
-+ </tbody>[3m^M[23m[m
-+ </table>[3m^M[23m[m
-:[K[K+<% end %>[3m^M[23m[m
-+[m
-+ <%= link_to :back, :class => 'btn btn-primary' do %>[3m^M[23m[m
-+ &laquo; 뒤로[3m^M[23m[m
-+ <% end %>[3m^M[23m[m
-+</div>[3m^M^G^G^G^G^G^G^G^G^G^G^G^G[23m <%= link_to '편집',[3m^M[23m <td>[3m^M[23m <td><%= ago(r.creat[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-:[K[K+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+ <tr>[3m^M[23m[m
-+ <td><%= r.id %></td>[3m^M[23m[m
-+ <td><%= link_to r.title, '#' %>[3m^M[23m[m
-+ <td>10</td>[3m^M[23m[m
-+ <td>5</td>[3m^M[23m[m
-+ <td>$100</td>[3m^M[23m[m
-+ <td><%= ago(r.created_at) %></td>[3m^M[23m[m
-+ <td>[3m^M[23m[m
-+ <%= link_to '편집',[3m^M[23m[m
-+ '#', :class => 'btn btn-mini' %>[3m^M[23m <%= link_to '다운로드', r.document.url, :clas[m
-:[K[K+ <%= link_to '지우기',[3m^M[23m[m
-+[m
-+[m
-+ report_path(r),[3m^M[23m[m
-+ :method => :delete,[3m^M[23m[m
-+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m[m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-+ </td>[3m^M[23m[m
-+ </tr>[3m^M[23m[m
-+ <% end %>[3m^M[23m[m
-+ </tbody>[3m^M[23m[m
-+ </table>[3m^M[23m[m
-+<% end %>[3m^M[23m[m
-+[m
-+ <%= link_to :back, :class => 'btn btn-primary' do %>[3m^M[23m[m
-+ &laquo; 뒤로[3m^M[23m:'a,. s/^/  /[3m^M[23m42 substitutions on 42 lines   <td>   <%= link_to '[m
-+        <% end %>[m
-+      </tbody>[m
-+    </table>[m
-:[K[K+  <% end %>42 substitutions on 42 lines:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" [m
-\ No newline at end of file[m
-[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[K[3m(END) [23m[K[K[HM+[m
-[HM+ <%= link_to '지우기',[3m^M[23m[m
-[HM+ '#', :class => 'btn btn-mini' %>[3m^M[23m <%= link_to '다운로드', r.document.url, :clas[m
-[HM+ <%= link_to '편집',[3m^M[23m[m
-[HM+ <td>[3m^M[23m[m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m[m
-[HM+ <td>$100</td>[3m^M[23m[m
-[HM+ <td>5</td>[3m^M[23m[m
-[HM+ <td>10</td>[3m^M[23m[m
-[HM+ <td><%= link_to r.title, '#' %>[3m^M[23m[m
-[HM+ <td><%= r.id %></td>[3m^M[23m[m
-[HM+ <tr>[3m^M[23m[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[21;1H[K:[K[K[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+</div>[3m^M^G^G^G^G^G^G^G^G^G^G^G^G[23m <%= link_to '편집',[3m^M[23m <td>[3m^M[23m <td><%= ago(r.creat[m
-[HM+ <% end %>[3m^M[23m[m
-[HM+ &laquo; 뒤로[3m^M[23m[m
-[HM+ <%= link_to :back, :class => 'btn btn-primary' do %>[3m^M[23m[m
-[21;1H[K:[K[K[HM+[m
-[HM+<% end %>[3m^M[23m[m
-[HM+ </table>[3m^M[23m[m
-[HM+ </tbody>[3m^M[23m[m
-[HM+ <% end %>[3m^M[23m[m
-[HM+ </tr>[3m^M[23m[m
-[HM+ </td>[3m^M[23m[m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m[m
-[HM+ :method => :delete,[3m^M[23m[m
-[HM+ report_path(r),[3m^M[23m[m
-[HM+ <%= link_to '지우기',[3m^M[23m[m
-[HM+ '#', :class => 'btn btn-mini' %>[3m^M[23m <%= link_to '다운로드', r.document.url, :clas[m
-[HM+ <%= link_to '편집',[3m^M[23m[m
-[HM+ <td>[3m^M[23m[m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m[m
-[HM+ <td>$100</td>[3m^M[23m[m
-[HM+ <td>5</td>[3m^M[23m[m
-[HM+ <td>10</td>[3m^M[23m[m
-[21;1H[K:[K[K+ <%= link_to :back, :class => 'btn btn-primary' do %>[3m^M[23m[m
-+ &laquo; 뒤로[3m^M[23m[m
-+ <% end %>[3m^M[23m[m
-+</div>[3m^M^G^G^G^G^G^G^G^G^G^G^G^G[23m <%= link_to '편집',[3m^M[23m <td>[3m^M[23m <td><%= ago(r.creat[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-:[K[K[HM+[m
-[HM+<% end %>[3m^M[23m[m
-[HM+ </table>[3m^M[23m[m
-[HM+ </tbody>[3m^M[23m[m
-[HM+ <% end %>[3m^M[23m[m
-[HM+ </tr>[3m^M[23m[m
-[HM+ </td>[3m^M[23m[m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m[m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m[m
-[HM+ :method => :delete,[3m^M[23m[m
-[HM+ report_path(r),[3m^M[23m[m
-[HM+ <%= link_to '지우기',[3m^M[23m[m
-[HM+ '#', :class => 'btn btn-mini' %>[3m^M[23m <%= link_to '다운로드', r.document.url, :clas[m
-[HM+ <%= link_to '편집',[3m^M[23m[m
-[HM+ <td>[3m^M[23m[m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m[m
-[HM+ <td>$100</td>[3m^M[23m[m
-[HM+ <td>5</td>[3m^M[23m[m
-[HM+ <td>10</td>[3m^M[23m[m
-[21;1H[K:[K[K[HM+ <td><%= link_to r.title, '#' %>[3m^M[23m[m
-[HM+ <td><%= r.id %></td>[3m^M[23m[m
-[HM+ <tr>[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[21;1H[K:[K[K[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+ <tr>:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 47L, 1291C written[3m^M[23m"search.html.e[m
-[HM+[m
-[HM+ <% @reports.each do |r| %>:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1298C w[m
-[HM+ <h2>Search results</h2>[3m^M[23m  [3m^G[23m:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 49L, 1305[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+ <% @reports.each do |r| %>[m
-[HM+ <td><%= r.id %></td>[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<b[0mr[1m /[0m>[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m<[1mb[0mr[1m /[0m[m
-[HM+ <tr>[m
-[HM+ <% @reports.each do |r| %>[m
-[HM+ <tbody>[m
-[HM+ </thead>[m
-[HM+ </tr>[m
-[HM+ <th>액션</th>[m
-[HM+</div>[3m^M[23m  <%= :back, :class => 'btn btn -large' do % large' do % arge' do % rge' [m
-[21;1H[K:[K[K[HM+  <% end %>[m
-[HM+    &laquo; 뒤로[m
-[HM+  <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+<% end %>[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+[1m-- INSERT --[0m [1m <tabl[0me[1m class='table[0m>[1m-- INSERT --[0m[3m^H[23m [1m</tbl[0mt[1mable[0m>[1m-- INSERT --[0m[1m-- INSERT[m
-[HM+<[m
-[HM+ [m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+ <% end </div>[m
-[HM+ &laquo; 뒤로[m
-[HM+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+<% end %[m
-[HM+<h3>Not found</h3>[m
-[HM+<% else %[m
-[21;1H[K:[K[K[HM+ </table[m
-[HM+ </tbo[m
-[HM+ <% [m
-[HM+ <[m
-[HM+[m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-[HM+ :method => :delete,[m
-[HM+ report_path(r),[m
-[HM+ <%= link_to '지우기',[m
-[HM+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-[HM+ <%= link_to '편집',[m
-[HM+[m
-[HM+ <td><%= ago(r.created_at) %></td>[m
-[HM+ <td>$100</td>[m
-[HM+ <td>5</td>[m
-[HM+ <td>10</td>[m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+ <td><%= r.id %></td>[m
-[21;1H[K:[K[K[HM+<% if @.count[1m [0m 0 %>[1m-- INSERT --[0m[3m^H[23m [1m=[0m=[1m-- INSERT --[0m[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m <%= link_to :back, :class => 'btn btn-primary btn-large' do %> <td>[m
-[HM+[m
-[HM+[m
-[HM+</di[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[1m-- INSERT --[0m[3m^G^G^G[23m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m>[1m-- IN[m
-[HM+ <% end %>[3m^M[23m  <%[m
-[HM+ &laquo; 뒤로[3m^M[23m    [m
-[HM+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[3m^M[23m  <%[m
-[HM+[m
-[HM+ </table>[3m^M[23m  </[m
-[21;1H[K:[K[K[HM+ </tbody>[3m^M[23m    [m
-[HM+ <% end %>[3m^M[23m    [m
-[HM+ </tr>[3m^M[23m    [m
-[HM+ </td>[3m^M[23m    [m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m    [m
-[HM+ :method => :delete,[3m^M[23m    [m
-[HM+ report_path(r),[3m^M[23m    [m
-[HM+ <%= link_to '지우기',[3m^M[23m    [m
-[HM+ '#', :class => 'btn btn-mini' %>[3m^M[23m     <%= link_to '다운로드', r.document.url, :[m
-[HM+ <%= link_to '편집',[3m^M[23m    [m
-[HM+ <td>[3m^M[23m    [m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-[HM+ <td>$100</td>[3m^M[23m    [m
-[HM+ <td>5</td>[3m^M[23m    [m
-[HM+ <td>10</td>[3m^M[23m    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[21;1H[K:[K[K[HM+    [m
-[HM+    [m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+ <td><%= link_to r.title, '#' %> <% if @reports.count > 0 %>[3m^G^M[23m     <% if @repor[m
-[HM+    5 fewer lines <%= link_to '편집', '#', :class => 'btn btn-mini' %> <%= link_t[m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[21;1H[K:[K[K[HM+ <td>[3m^M[23m    [m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-[HM+ <td>$100</td>[3m^M[23m    [m
-[HM+ <td>5</td>[3m^M[23m    [m
-[HM+ <td>10</td>[3m^M[23m    [m
-[HM+ <td><%= link_to r.title, '#' %>[3m^M[23m    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[21;1H[K:[K[K[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1391C written[3m^M[23m"search.html.erb" 5[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m[3m^H^H^H^H^H^H^H^H^H^H^H^H^H[23m &laquo; 뒤로[m
-[HM+[m
-[HM+[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1398C written[3m^M[23m"search.html.erb" 5[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m[3m^H[23m 뒤&raquo;로 &raquo;[m
-[21;1H[K:[K[K[HM+[m
-[HM+[m
-[HM+</div>[3m^M^G[23m    [3m^M[23m    =[1m [0mew_report_path, :class => 'btn btn-primary btn-large' do % [m
-[HM+  <% end %>[m
-[HM+    리포트 등록 &raquo;[m
-[HM+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+</div>[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[106m([0mr[106m[0m[3m^H^H[23m(r) <td <td><%= ago(r.created_a[m
-[HM+ <% end %[m
-[HM+ 리포트 등록 &raquo[m
-[HM+ <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+ </table[m
-[HM+ </tbody[m
-[HM+ <% end %[m
-[HM+ </tr[m
-[HM+ </td[m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-[21;1H[K:[K[K[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-[HM+(r) :method => :d[m
-[HM+ report_path[106m([0mr[106m)[0m[3m^H[23m[m
-[HM+ <%= link_to [m
-[HM+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-[HM+ <%= link_to '[m
-[HM+ <td[m
-[HM+ <td><%= ago(r.created_at) %></td>[m
-[HM+ <td>$100</td[m
-[HM+ <td>5</td[m
-[HM+ <td>10</td[m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+ <td><%= r.id %></[m
-[HM+ <tr[m
-[HM+ <% @reports.each do |[m
-[HM+ <% end %[m
-[HM+ </tr[m
-[HM+ :method => :delete,[1m-- INSERT --[0m[1m-- INSERT --[0m [1m No[0mt[1m Foun[0m [1mfoun[0md:w[3m^M[23m"search.html.erb"[m
-[HM+ report_path(r),[m
-[21;1H[K:[K[K[HM+ <%= link_to '지우기',[m
-[HM+            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-i[m
-[HM+ <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-in[94m@         [m
-[HM+ '#', :class => 'btn btn-mini' %>[m
-[HM+ <%= link_to '편집',[m
-[HM+ <%= link_to '지우기', <td> <td></td>[94m@                                           [m
-[HM+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-[HM+ <%= link_to '편집',[m
-[HM+ <td[m
-[HM+ <td><%= ago(r.created_at) %></td>[m
-[HM+ <td>$100</td>[m
-[HM+ <td>[m
-[HM+ <td>10</td>[m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+ <td><%= r.id %></td>[m
-[HM+ <tr[m
-[HM+ <% @reports.each do |r| %>[m
-[HM+ <% end %[m
-[HM+ </tr[m
-[HM+ <td>[m
-[21;1H[K:[K[K[HM+ <td>[m
-[HM+ <td>[m
-[HM+ <td>[m
-[HM+ <td>[m
-[HM+ <td></td>[m
-[HM+ <% e <th>ID</th><td>[1m-- INSERT --[0m> result</td[1m>[0mx result</td[1m>[0m result</td[1m>[0mresult</td[m
-[HM+ </tr>[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 54L, 1481C written[3m^M[23m"search.html.erb" 5[m
-[HM+ <td><%= link_to r.title, '#' %>[1m-- INSERT --[0m[1m-- INSERT --[0m[3m^H[23m [1m<td>,[0m>[1m</td[0m> <td></td> [m
-[HM+ <td><%= r.id %></td>[m
-[HM+ <tr[m
-[HM+ <% @reports.each do |r| %>[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1362C written[3m^M[23m"search.html.erb" 4[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m[3m^H[23mts[m
-[HM+[m
-[HM+[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1361C written[3m^M[23m"search.html.erb" 4[m
-[HM+[m
-[21;1H[K:[K[K[HM+[m
-[HM+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th><div class[m
-[HM+  <table class='table table-striped'>[m
-[HM+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-[HM+    </thead>[m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+</div>[m
-[HM+  <% end %>[m
-[HM+    리포트 등록 &raquo;[m
-[HM+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>[m
-[HM+[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-[HM+    </thead>[m
-[HM+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-[HM+  <table class='table table-striped'>[m
-[21;1H[K:[K[K[HM+  <p>Search results</p>[m
-[HM+[23m[24m[0m"search.html.erb" [3m^M[23m"search.html.erb" 45L, 1326C<div class="hero-unit">[m
-[HM+~/code/kr/app/views/reports% vi search.html.erb [m
-[HM+index.html.erb            search.html.erb[m
-[HM+_error_messages.html.erb  new.html.erb[m
-[HM+~/code/kr/app/views/reports% ls[m
-[HM+~/code/kr/app/views% cd reports/[m
-[HM+[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/[m
-[HM+~/code/kr/app/views% ls[m
-[HM+~/code/kr% cd app/views/[m
-[HM\ No newline at end of file[m
-[HM-~/code/kr% [m
-[HM Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/[m
-[HM Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript[m
-[HM Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/[m
-[HM@@ -478,4 +478,372 @@ Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[[m
-[HM+++ b/typescript[m
-[HM--- a/typescript[m
-[HMindex 78e4fbb..1fe5371 100644[m
-[HMdiff --git a/typescript b/typescript[m
-[21;1H[K:[K[K[HM #  match '/reports/:id', to: 'reports#destroy', :via => :delete[m
-[HM #  match '/reports/:id', to: 'reports#show', :as => :report, :via => :get[m
-[HM #  match '/reports', to: 'reports#index', :as => :reports, :via => :get[m
-[HM+[m
-[HM+  match 'search' => 'reports#search'[m
-[HM+[m
-[HM   resources :reports[m
-[HM Kr::Application.routes.draw do[m
-[HM@@ -1,5 +1,8 @@[m
-[HM+++ b/config/routes.rb[m
-[HM--- a/config/routes.rb[m
-[HMindex 0246b9c..2923833 100644[m
-[HMdiff --git a/config/routes.rb b/config/routes.rb[m
-[HM             <li><%= link_to "마이 페이지", reports_path %></li>[m
-[HM             </li>[m
-[HM               <% end %>[m
-[HM+                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-[HM+              <%= form_tag search_path, method: :get, class: 'navbar-search' do %[m
-[HM-                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-[HM-              <%= form_tag '#', method: :get, class: 'navbar-search' do %>[m
-[21;1H[K:[K[K[HM             <li>[m
-[HM           <ul class="nav">[m
-[HM         <% if user_signed_in? %>[m
-[HM@@ -16,8 +16,8 @@[m
-[HM+++ b/app/views/layouts/_header.html.erb[m
-[HM--- a/app/views/layouts/_header.html.erb[m
-[HMindex 897c899..aa77a7f 100644[m
-[HMdiff --git a/app/views/layouts/_header.html.erb b/app/views/layouts/_header.html.e[m
-[HM end[m
-[HM+  end[m
-[HM+    end[m
-[HM+      scoped[m
-[HM+    else[m
-[HM+      where("title like :q", q: "%#{query}%")[m
-[HM+    if query.present?[m
-[HM+  def self.text_search( query )[m
-[HM+[m
-[HM     :size => { :in => 0..9999.kilobytes }[m
-[HM   validates_attachment :document, :presence => true,[m
-[HM [m
-[21;1H[K:[K[K-              <%= form_tag '#', method: :get, class: 'navbar-search' do %>[m
--                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-+              <%= form_tag search_path, method: :get, class: 'navbar-search' do %[m
-+                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-               <% end %>[m
-             </li>[m
-             <li><%= link_to "마이 페이지", reports_path %></li>[m
-diff --git a/config/routes.rb b/config/routes.rb[m
-index 0246b9c..2923833 100644[m
---- a/config/routes.rb[m
-+++ b/config/routes.rb[m
-@@ -1,5 +1,8 @@[m
- Kr::Application.routes.draw do[m
-   resources :reports[m
-+[m
-+  match 'search' => 'reports#search'[m
-+[m
- #  match '/reports', to: 'reports#index', :as => :reports, :via => :get[m
- #  match '/reports/:id', to: 'reports#show', :as => :report, :via => :get[m
- #  match '/reports/:id', to: 'reports#destroy', :via => :delete[m
-:[K[Kdiff --git a/typescript b/typescript[m
-index 78e4fbb..1fe5371 100644[m
---- a/typescript[m
-+++ b/typescript[m
-@@ -478,4 +478,372 @@ Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[[m
- Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/[m
- Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript[m
- Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/[m
--~/code/kr% [m
-\ No newline at end of file[m
-+~/code/kr% cd app/views/[m
-+~/code/kr/app/views% ls[m
-+[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/[m
-+~/code/kr/app/views% cd reports/[m
-+~/code/kr/app/views/reports% ls[m
-+_error_messages.html.erb  new.html.erb[m
-+index.html.erb            search.html.erb[m
-+~/code/kr/app/views/reports% vi search.html.erb [m
-+[23m[24m[0m"search.html.erb" [3m^M[23m"search.html.erb" 45L, 1326C<div class="hero-unit">[m
-+  <p>Search results</p>[m
-:[K[K+  <table class='table table-striped'>[m
-+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-+    </thead>[m
-+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-+    </tbody>[m
-+  </table>[m
-+[m
-+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>[m
-+[m
-+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+    리포트 등록 &raquo;[m
-+  <% end %>[m
-+</div>[m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+    </thead>[m
-+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-+  <table class='table table-striped'>[m
-+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th><div class[m
-+[m
-:[K[K+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1361C written[3m^M[23m"search.html.erb" 4[m
-+[m
-+[m
-+[1m-- INSERT --[0m[3m^H[23mts[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1362C written[3m^M[23m"search.html.erb" 4[m
-+ <% @reports.each do |r| %>[m
-+ <tr[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[1m-- INSERT --[0m[1m-- INSERT --[0m[3m^H[23m [1m<td>,[0m>[1m</td[0m> <td></td> [m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 54L, 1481C written[3m^M[23m"search.html.erb" 5[m
-+ </tr>[m
-+ <% e <th>ID</th><td>[1m-- INSERT --[0m> result</td[1m>[0mx result</td[1m>[0m result</td[1m>[0mresult</td[m
-+ <td></td>[m
-+ <td>[m
-+ <td>[m
-+ <td>[m
-+ <td>[m
-:[K[K[HM+[m
-[HM+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th><div class[m
-[HM+  <table class='table table-striped'>[m
-[HM+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-[HM+    </thead>[m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+</div>[m
-[HM+  <% end %>[m
-[HM+    리포트 등록 &raquo;[m
-[HM+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>[m
-[HM+[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-[HM+    </thead>[m
-[HM+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-[HM+  <table class='table table-striped'>[m
-[21;1H[K:[K[K[HM+  <p>Search results</p>[m
-[HM+[23m[24m[0m"search.html.erb" [3m^M[23m"search.html.erb" 45L, 1326C<div class="hero-unit">[m
-[HM+~/code/kr/app/views/reports% vi search.html.erb [m
-[HM+index.html.erb            search.html.erb[m
-[HM+_error_messages.html.erb  new.html.erb[m
-[HM+~/code/kr/app/views/reports% ls[m
-[HM+~/code/kr/app/views% cd reports/[m
-[HM+[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/[m
-[HM+~/code/kr/app/views% ls[m
-[HM+~/code/kr% cd app/views/[m
-[HM\ No newline at end of file[m
-[HM-~/code/kr% [m
-[HM Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/[m
-[HM Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript[m
-[HM Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/[m
-[HM@@ -478,4 +478,372 @@ Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[[m
-[HM+++ b/typescript[m
-[HM--- a/typescript[m
-[HMindex 78e4fbb..1fe5371 100644[m
-[HMdiff --git a/typescript b/typescript[m
-[21;1H[K:[K[K+  <table class='table table-striped'>[m
-:[K[K+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-:[K[K+    </thead>[m
-:[K[K[?1l>~/code/kr% 
-~/code/kr% 
-~/code/kr% git diff
-[?1h=diff --git a/app/controllers/reports_controller.rb b/app/controllers/reports_contr[m
-index 517d80d..ac16958 100644[m
---- a/app/controllers/reports_controller.rb[m
-+++ b/app/controllers/reports_controller.rb[m
-@@ -1,7 +1,11 @@[m
- [m
- class ReportsController < ApplicationController[m
-   protect_from_forgery[m
--  before_filter :authenticate_user!, :except => [:index][m
-+  before_filter :authenticate_user!, :except => [:index, :search][m
-+[m
-+  def search[m
-+    @reports = Report.text_search(params[:query]).order('id DESC')[m
-+  end[m
- [m
-   def index[m
-     if user_signed_in?[m
-diff --git a/app/models/report.rb b/app/models/report.rb[m
-index 5097f3d..500622e 100644[m
---- a/app/models/report.rb[m
-:[K[K+++ b/app/models/report.rb[m
-@@ -9,4 +9,12 @@ class Report < ActiveRecord::Base[m
- [m
-   validates_attachment :document, :presence => true,[m
-     :size => { :in => 0..9999.kilobytes }[m
-+[m
-+  def self.text_search( query )[m
-+    if query.present?[m
-+      where("title like :q", q: "%#{query}%")[m
-+    else[m
-+      scoped[m
-+    end[m
-+  end[m
- end[m
-diff --git a/app/views/layouts/_header.html.erb b/app/views/layouts/_header.html.e[m
-index 897c899..aa77a7f 100644[m
---- a/app/views/layouts/_header.html.erb[m
-+++ b/app/views/layouts/_header.html.erb[m
-@@ -16,8 +16,8 @@[m
-         <% if user_signed_in? %>[m
-:[K[K           <ul class="nav">[m
-             <li>[m
--              <%= form_tag '#', method: :get, class: 'navbar-search' do %>[m
--                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-+              <%= form_tag search_path, method: :get, class: 'navbar-search' do %[m
-+                <%= text_field_tag :query, params[:query], class: 'search-query',[m
-               <% end %>[m
-             </li>[m
-             <li><%= link_to "마이 페이지", reports_path %></li>[m
-diff --git a/config/routes.rb b/config/routes.rb[m
-index 0246b9c..2923833 100644[m
---- a/config/routes.rb[m
-+++ b/config/routes.rb[m
-@@ -1,5 +1,8 @@[m
- Kr::Application.routes.draw do[m
-   resources :reports[m
-+[m
-+  match 'search' => 'reports#search'[m
-+[m
- #  match '/reports', to: 'reports#index', :as => :reports, :via => :get[m
-:[K[K #  match '/reports/:id', to: 'reports#show', :as => :report, :via => :get[m
- #  match '/reports/:id', to: 'reports#destroy', :via => :delete[m
-diff --git a/typescript b/typescript[m
-index 78e4fbb..c7de2e5 100644[m
---- a/typescript[m
-+++ b/typescript[m
-@@ -478,4 +478,1369 @@ Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[[m
- Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/[m
- Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript[m
- Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/[m
--~/code/kr% [m
-\ No newline at end of file[m
-+~/code/kr% cd app/views/[m
-+~/code/kr/app/views% ls[m
-+[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/[m
-+~/code/kr/app/views% cd reports/[m
-+~/code/kr/app/views/reports% ls[m
-+_error_messages.html.erb  new.html.erb[m
-+index.html.erb            search.html.erb[m
-+~/code/kr/app/views/reports% vi search.html.erb [m
-:[K[K+[23m[24m[0m"search.html.erb" [3m^M[23m"search.html.erb" 45L, 1326C<div class="hero-unit">[m
-+  <p>Search results</p>[m
-+  <table class='table table-striped'>[m
-+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-+    </thead>[m
-+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-+    </tbody>[m
-+  </table>[m
-+[m
-+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>[m
-+[m
-+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+    리포트 등록 &raquo;[m
-+  <% end %>[m
-+</div>[m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+    </thead>[m
-+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-+  <table class='table table-striped'>[m
-:[K[K+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th><div class[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1361C written[3m^M[23m"search.html.erb" 4[m
-+[m
-+[m
-+[1m-- INSERT --[0m[3m^H[23mts[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1362C written[3m^M[23m"search.html.erb" 4[m
-+ <% @reports.each do |r| %>[m
-+ <tr[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[1m-- INSERT --[0m[1m-- INSERT --[0m[3m^H[23m [1m<td>,[0m>[1m</td[0m> <td></td> [m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 54L, 1481C written[3m^M[23m"search.html.erb" 5[m
-+ </tr>[m
-+ <% e <th>ID</th><td>[1m-- INSERT --[0m> result</td[1m>[0mx result</td[1m>[0m result</td[1m>[0mresult</td[m
-+ <td></td>[m
-+ <td>[m
-+ <td>[m
-:[K[K+ <td>[m
-+ <td>[m
-+ <td>[m
-+ </tr[m
-+ <% end %[m
-+ <% @reports.each do |r| %>[m
-+ <tr[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[m
-+ <td>10</td>[m
-+ <td>[m
-+ <td>$100</td>[m
-+ <td><%= ago(r.created_at) %></td>[m
-+ <td[m
-+ <%= link_to '편집',[m
-+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-+ <%= link_to '지우기', <td> <td></td>[94m@                                           [m
-+ <%= link_to '편집',[m
-+ '#', :class => 'btn btn-mini' %>[m
-+ <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-in[94m@         [m
-:[K[K+            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-i[m
-+ <%= link_to '지우기',[m
-+ report_path(r),[m
-+ :method => :delete,[1m-- INSERT --[0m[1m-- INSERT --[0m [1m No[0mt[1m Foun[0m [1mfoun[0md:w[3m^M[23m"search.html.erb"[m
-+ </tr[m
-+ <% end %[m
-+ <% @reports.each do |[m
-+ <tr[m
-+ <td><%= r.id %></[m
-+ <td><%= link_to r.title, '#' %>[m
-+ <td>10</td[m
-+ <td>5</td[m
-+ <td>$100</td[m
-+ <td><%= ago(r.created_at) %></td>[m
-+ <td[m
-+ <%= link_to '[m
-+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-+ <%= link_to [m
-+ report_path[106m([0mr[106m)[0m[3m^H[23m[m
-+(r) :method => :d[m
-:[K[K+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-+ </td[m
-+ </tr[m
-+ <% end %[m
-+ </tbody[m
-+ </table[m
-+[m
-+ <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+ 리포트 등록 &raquo[m
-+ <% end %[m
-+</div>[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[106m([0mr[106m[0m[3m^H^H[23m(r) <td <td><%= ago(r.created_a[m
-+    </tbody>[m
-+  </table>[m
-+[m
-+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-+    리포트 등록 &raquo;[m
-+  <% end %>[m
-+</div>[3m^M^G[23m    [3m^M[23m    =[1m [0mew_report_path, :class => 'btn btn-primary btn-large' do % [m
-:[K[K+[m
-+[m
-+[1m-- INSERT --[0m[3m^H[23m 뒤&raquo;로 &raquo;[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1398C written[3m^M[23m"search.html.erb" 5[m
-+[m
-+[m
-+[1m-- INSERT --[0m[3m^H^H^H^H^H^H^H^H^H^H^H^H^H[23m &laquo; 뒤로[m
-+[m
-+[m
-+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1391C written[3m^M[23m"search.html.erb" 5[m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-:[K[K+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+ <td><%= link_to r.title, '#' %>[3m^M[23m    [m
-+ <td>10</td>[3m^M[23m    [m
-+ <td>5</td>[3m^M[23m    [m
-+ <td>$100</td>[3m^M[23m    [m
-:[K[K+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-+ <td>[3m^M[23m    [m
-+    [m
-+    [m
-+    [m
-+    5 fewer lines <%= link_to '편집', '#', :class => 'btn btn-mini' %> <%= link_t[m
-+ <td><%= link_to r.title, '#' %> <% if @reports.count > 0 %>[3m^G^M[23m     <% if @repor[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+ <td><%= link_to r.title, '#' %>[m
-:[K[K+    [m
-+    [m
-+    [m
-+    [m
-+    [m
-+ <td>10</td>[3m^M[23m    [m
-+ <td>5</td>[3m^M[23m    [m
-+ <td>$100</td>[3m^M[23m    [m
-+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-+ <td>[3m^M[23m    [m
-+ <%= link_to '편집',[3m^M[23m    [m
-+ '#', :class => 'btn btn-mini' %>[3m^M[23m     <%= link_to '다운로드', r.document.url, :[m
-+ <%= link_to '지우기',[3m^M[23m    [m
-+ report_path(r),[3m^M[23m    [m
-+ :method => :delete,[3m^M[23m    [m
-+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m    [m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-+ </td>[3m^M[23m    [m
-+ </tr>[3m^M[23m    [m
-:[K[K+ <% end %>[3m^M[23m    [m
-+ </tbody>[3m^M[23m    [m
-+ </table>[3m^M[23m  </[m
-+[m
-+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[3m^M[23m  <%[m
-+ &laquo; 뒤로[3m^M[23m    [m
-+ <% end %>[3m^M[23m  <%[m
-+</di[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[1m-- INSERT --[0m[3m^G^G^G[23m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m>[1m-- IN[m
-+[m
-+[m
-+[1m-- INSERT --[0m <%= link_to :back, :class => 'btn btn-primary btn-large' do %> <td>[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-+[m
-:[K[K+[m
-+<% if @.count[1m [0m 0 %>[1m-- INSERT --[0m[3m^H[23m [1m=[0m=[1m-- INSERT --[0m[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m[m
-+ <td><%= r.id %></td>[m
-+ <td><%= link_to r.title, '#' %>[m
-+ <td>10</td>[m
-+ <td>5</td>[m
-+ <td>$100</td>[m
-+ <td><%= ago(r.created_at) %></td>[m
-+[m
-+ <%= link_to '편집',[m
-+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-+ <%= link_to '지우기',[m
-+ report_path(r),[m
-+ :method => :delete,[m
-+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-+[m
-+ <[m
-+ <% [m
-:[K[K+ </tbo[m
-+ </table[m
-+<% else %[m
-+<h3>Not found</h3>[m
-+<% end %[m
-+[m
-+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-+ &laquo; 뒤로[m
-+ <% end </div>[m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+[94m~                                                                                [m
-+ [m
-+<[m
-+[1m-- INSERT --[0m [1m <tabl[0me[1m class='table[0m>[1m-- INSERT --[0m[3m^H[23m [1m</tbl[0mt[1mable[0m>[1m-- INSERT --[0m[1m-- INSERT[m
-+    </tbody>[m
-+  </table>[m
-+<% end %>[m
-+[m
-+  <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-:[K[K+    &laquo; 뒤로[m
-+  <% end %>[m
-+</div>[3m^M[23m  <%= :back, :class => 'btn btn -large' do % large' do % arge' do % rge' [m
-+ <th>액션</th>[m
-+ </tr>[m
-+ </thead>[m
-+ <tbody>[m
-+ <% @reports.each do |r| %>[m
-+ <tr>[m
-+ <td><%= r.id %></td>[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<b[0mr[1m /[0m>[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m<[1mb[0mr[1m /[0m[m
-+ <% @reports.each do |r| %>[m
-+[m
-+[m
-+[m
-+ <h2>Search results</h2>[3m^M[23m  [3m^G[23m:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 49L, 1305[m
-+ <% @reports.each do |r| %>:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1298C w[m
-+[m
-+ <tr>:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 47L, 1291C written[3m^M[23m"search.html.e[m
-+[m
-+[m
-:[K[K[HM+  <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+<% end %>[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+[1m-- INSERT --[0m [1m <tabl[0me[1m class='table[0m>[1m-- INSERT --[0m[3m^H[23m [1m</tbl[0mt[1mable[0m>[1m-- INSERT --[0m[1m-- INSERT[m
-[HM+<[m
-[HM+ [m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+ <% end </div>[m
-[HM+ &laquo; 뒤로[m
-[HM+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+<% end %[m
-[HM+<h3>Not found</h3>[m
-[HM+<% else %[m
-[HM+ </table[m
-[HM+ </tbo[m
-[21;1H[K:[K[K[HM+ <% [m
-[HM+ <[m
-[HM+[m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-[HM+ :method => :delete,[m
-[HM+ report_path(r),[m
-[HM+ <%= link_to '지우기',[m
-[HM+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-[HM+ <%= link_to '편집',[m
-[HM+[m
-[HM+ <td><%= ago(r.created_at) %></td>[m
-[HM+ <td>$100</td>[m
-[HM+ <td>5</td>[m
-[HM+ <td>10</td>[m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+ <td><%= r.id %></td>[m
-[HM+<% if @.count[1m [0m 0 %>[1m-- INSERT --[0m[3m^H[23m [1m=[0m=[1m-- INSERT --[0m[1m-- INSERT --[0m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m[m
-[HM+[m
-[21;1H[K:[K[K[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m <%= link_to :back, :class => 'btn btn-primary btn-large' do %> <td>[m
-[HM+[m
-[HM+[m
-[HM+</di[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[1m-- INSERT --[0m[3m^G^G^G[23m[1m-- INSERT --[0m[1m<[0m%[1m els[0me[1m %[0m>[1m-- IN[m
-[HM+ <% end %>[3m^M[23m  <%[m
-[HM+ &laquo; 뒤로[3m^M[23m    [m
-[HM+ <%= link_to :back, :class => 'btn btn-primary btn-large' do %>[3m^M[23m  <%[m
-[HM+[m
-[HM+ </table>[3m^M[23m  </[m
-[HM+ </tbody>[3m^M[23m    [m
-[HM+ <% end %>[3m^M[23m    [m
-[21;1H[K:[K[K[HM+ </tr>[3m^M[23m    [m
-[HM+ </td>[3m^M[23m    [m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[3m^M[23m    [m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[3m^M[23m    [m
-[HM+ :method => :delete,[3m^M[23m    [m
-[HM+ report_path(r),[3m^M[23m    [m
-[HM+ <%= link_to '지우기',[3m^M[23m    [m
-[HM+ '#', :class => 'btn btn-mini' %>[3m^M[23m     <%= link_to '다운로드', r.document.url, :[m
-[HM+ <%= link_to '편집',[3m^M[23m    [m
-[HM+ <td>[3m^M[23m    [m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-[HM+ <td>$100</td>[3m^M[23m    [m
-[HM+ <td>5</td>[3m^M[23m    [m
-[HM+ <td>10</td>[3m^M[23m    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[21;1H[K:[K[K[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+[m
-[HM+ <td><%= link_to r.title, '#' %> <% if @reports.count > 0 %>[3m^G^M[23m     <% if @repor[m
-[HM+    5 fewer lines <%= link_to '편집', '#', :class => 'btn btn-mini' %> <%= link_t[m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+ <td>[3m^M[23m    [m
-[HM+ <td><%= ago(r.created_at) %></td>[3m^M[23m    [m
-[21;1H[K:[K[K[HM+ <td>$100</td>[3m^M[23m    [m
-[HM+ <td>5</td>[3m^M[23m    [m
-[HM+ <td>10</td>[3m^M[23m    [m
-[HM+ <td><%= link_to r.title, '#' %>[3m^M[23m    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[21;1H[K:[K[K[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+    [m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1391C written[3m^M[23m"search.html.erb" 5[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m[3m^H^H^H^H^H^H^H^H^H^H^H^H^H[23m &laquo; 뒤로[m
-[HM+[m
-[HM+[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 50L, 1398C written[3m^M[23m"search.html.erb" 5[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m[3m^H[23m 뒤&raquo;로 &raquo;[m
-[HM+[m
-[HM+[m
-[21;1H[K:[K[K[HM+</div>[3m^M^G[23m    [3m^M[23m    =[1m [0mew_report_path, :class => 'btn btn-primary btn-large' do % [m
-[HM+  <% end %>[m
-[HM+    리포트 등록 &raquo;[m
-[HM+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+</div>[3m^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G^G[23m[106m([0mr[106m[0m[3m^H^H[23m(r) <td <td><%= ago(r.created_a[m
-[HM+ <% end %[m
-[HM+ 리포트 등록 &raquo[m
-[HM+ <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+ </table[m
-[HM+ </tbody[m
-[HM+ <% end %[m
-[HM+ </tr[m
-[HM+ </td[m
-[HM+ <%= link_to '이메일', '#', :class => 'btn btn-mini' %>[m
-[HM+ <%= link_to '공유', '#', :class => 'btn btn-mini' %>[m
-[HM+ :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>[m
-[21;1H[K:[K[K[HM+(r) :method => :d[m
-[HM+ report_path[106m([0mr[106m)[0m[3m^H[23m[m
-[HM+ <%= link_to [m
-[HM+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-[HM+ <%= link_to '[m
-[HM+ <td[m
-[HM+ <td><%= ago(r.created_at) %></td>[m
-[HM+ <td>$100</td[m
-[HM+ <td>5</td[m
-[HM+ <td>10</td[m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+ <td><%= r.id %></[m
-[HM+ <tr[m
-[HM+ <% @reports.each do |[m
-[HM+ <% end %[m
-[HM+ </tr[m
-[HM+ :method => :delete,[1m-- INSERT --[0m[1m-- INSERT --[0m [1m No[0mt[1m Foun[0m [1mfoun[0md:w[3m^M[23m"search.html.erb"[m
-[HM+ report_path(r),[m
-[HM+ <%= link_to '지우기',[m
-[HM+            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-i[m
-[21;1H[K:[K[K[HM+ <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-in[94m@         [m
-[HM+ '#', :class => 'btn btn-mini' %>[m
-[HM+ <%= link_to '편집',[m
-[HM+ <%= link_to '지우기', <td> <td></td>[94m@                                           [m
-[HM+ '#', :class => 'btn btn-mini' %> <%= link_to '다운로드', r.document.url, :class [m
-[HM+ <%= link_to '편집',[m
-[HM+ <td[m
-[HM+ <td><%= ago(r.created_at) %></td>[m
-[HM+ <td>$100</td>[m
-[HM+ <td>[m
-[HM+ <td>10</td>[m
-[HM+ <td><%= link_to r.title, '#' %>[m
-[HM+ <td><%= r.id %></td>[m
-[HM+ <tr[m
-[HM+ <% @reports.each do |r| %>[m
-[HM+ <% end %[m
-[HM+ </tr[m
-[HM+ <td>[m
-[HM+ <td>[m
-[HM+ <td>[m
-[21;1H[K:[K[K[HM+ <td>[m
-[HM+ <td>[m
-[HM+ <td></td>[m
-[HM+ <% e <th>ID</th><td>[1m-- INSERT --[0m> result</td[1m>[0mx result</td[1m>[0m result</td[1m>[0mresult</td[m
-[HM+ </tr>[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 54L, 1481C written[3m^M[23m"search.html.erb" 5[m
-[HM+ <td><%= link_to r.title, '#' %>[1m-- INSERT --[0m[1m-- INSERT --[0m[3m^H[23m [1m<td>,[0m>[1m</td[0m> <td></td> [m
-[HM+ <td><%= r.id %></td>[m
-[HM+ <tr[m
-[HM+ <% @reports.each do |r| %>[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1362C written[3m^M[23m"search.html.erb" 4[m
-[HM+[m
-[HM+[m
-[HM+[1m-- INSERT --[0m[3m^H[23mts[m
-[HM+[m
-[HM+[m
-[HM+:w[3m^M[23m"search.html.erb" [3m^M[23m"search.html.erb" 48L, 1361C written[3m^M[23m"search.html.erb" 4[m
-[HM+[m
-[HM+[m
-[HM+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th><div class[m
-[21;1H[K:[K[K[HM+  <table class='table table-striped'>[m
-[HM+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-[HM+    </thead>[m
-[HM+[94m~                                                                                [m
-[HM+[94m~                                                                                [m
-[HM+</div>[m
-[HM+  <% end %>[m
-[HM+    리포트 등록 &raquo;[m
-[HM+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>[m
-[HM+[m
-[HM+  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>[m
-[HM+[m
-[HM+  </table>[m
-[HM+    </tbody>[m
-[HM+    <tbody> <% @reports.each do |r| %> <tr> <td><%= r.id %></td> <td><%= link_to [m
-[HM+    </thead>[m
-[HM+    <thead> <tr> <th>ID</th> <th>제목</th> <th>View</th> <th>Sales</th> <th>Reven[m
-[HM+  <table class='table table-striped'>[m
-[HM+  <p>Search results</p>[m
-[HM+[23m[24m[0m"search.html.erb" [3m^M[23m"search.html.erb" 45L, 1326C<div class="hero-unit">[m
-[21;1H[K:[K[K[HM+~/code/kr/app/views/reports% vi search.html.erb [m
-[HM+index.html.erb            search.html.erb[m
-[HM+_error_messages.html.erb  new.html.erb[m
-[HM+~/code/kr/app/views/reports% ls[m
-[HM+~/code/kr/app/views% cd reports/[m
-[HM+[34mdevise[39;49m[0m/   [34mlayouts[39;49m[0m/  [34mreports[39;49m[0m/  [34msettings[39;49m[0m/[m
-[HM+~/code/kr/app/views% ls[m
-[HM+~/code/kr% cd app/views/[m
-[HM\ No newline at end of file[m
-[HM-~/code/kr% [m
-[HM Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[0m/       [34mvendor[39;49m[0m/[m
-[HM Gemfile.lock  [34mconfig[39;49m[0m/       [34mdoc[39;49m[0m/          [34mpublic[39;49m[0m/       typescript[m
-[HM Gemfile       [34mapp[39;49m[0m/          [34mdb[39;49m[0m/           [34mlog[39;49m[0m/          [34mtmp[39;49m[0m/[m
-[HM@@ -478,4 +478,1369 @@ Rakefile      config.ru     [34mlib[39;49m[0m/          [34mscript[39;49m[[m
-[HM+++ b/typescript[m
-[HM--- a/typescript[m
-[HMindex 78e4fbb..c7de2e5 100644[m
-[HMdiff --git a/typescript b/typescript[m
-[HM #  match '/reports/:id', to: 'reports#destroy', :via => :delete[m
-[HM #  match '/reports/:id', to: 'reports#show', :as => :report, :via => :get[m
-[21;1H[K:[K[K[?1l>~/code/kr% 
-~/code/kr% 
-~/code/kr% 
-~/code/kr% clear
-[H[J~/code/kr% 

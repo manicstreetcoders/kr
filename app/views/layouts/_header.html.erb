@@ -18,6 +18,7 @@
             <li>
               <%= form_tag search_path, method: :get, class: 'navbar-search' do %>
                 <%= text_field_tag :query, params[:query], class: 'search-query', placeholder: '리포트 제목을 입력하세요' %>
+                <i class='icon-search'></i>
               <% end %>
             </li>
             <li><%= link_to "마이 페이지", reports_path %></li>
