@@ -1,9 +1,13 @@
 <div class="hero-unit">
   <% if user_signed_in? %>
-    <h2><%= current_user.email %> 님, koReport BETA 에 오신 것을 환영합니다.</h2>
+    <h2><%= image_tag @current_user.avatar.url(:thumb) %>
+    <%= current_user.email %> 님, koReport BETA 에 오신 것을 환영합니다.</h2>
   <% else %>
     <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
   <% end %>
+
+  <br />
+
   <p>하드디스크에서 잠자고 있는 여러분의 리포트를 팔아보세요.</p>
   
   <br />
@@ -31,11 +35,15 @@
           <td>$100</td>
           <td><%= ago(r.created_at) %></td>
           <td>
-            <%= link_to 'Edit',
+            <%= link_to '편집',
               '#', :class => 'btn btn-mini' %>
-            <%= link_to 'Download', r.document.url, :class => 'btn btn-mini btn-info' %>
-            <%= link_to 'Delete',
-              '#', :class => 'btn btn-mini btn-danger' %>
+            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-info' %>
+            <%= link_to '지우기',
+              report_path(r),
+              :method => :delete,
+              :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            <%= link_to '공유', '#', :class => 'btn btn-mini' %>
+            <%= link_to '이메일', '#', :class => 'btn btn-mini' %>
           </td>
         </tr>
       <% end %>
@@ -44,7 +52,7 @@
   
   <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>
 
-  <%= link_to new_reports_path, :class => 'btn btn-primary btn-large' do %>
+  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>
     리포트 등록 &raquo;
   <% end %>
 </div> 

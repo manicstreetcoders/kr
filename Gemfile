@@ -61,3 +61,5 @@ gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'will_paginate', '> 3.0'
 
 gem 'will_paginate-bootstrap'
+
+gem 'lol_dba'
