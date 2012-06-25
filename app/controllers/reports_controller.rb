@@ -1,7 +1,11 @@
 
 class ReportsController < ApplicationController
   protect_from_forgery
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :search]
+
+  def search
+    @reports = Report.text_search(params[:query]).order('id DESC')
+  end
 
   def index
     if user_signed_in?

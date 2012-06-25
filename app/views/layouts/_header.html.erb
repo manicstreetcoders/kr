@@ -16,8 +16,8 @@
         <% if user_signed_in? %>
           <ul class="nav">
             <li>
-              <%= form_tag '#', method: :get, class: 'navbar-search' do %>
-                <%= text_field_tag :query, params[:query], class: 'search-query', placeholder: '아이디나 리포트 제목을 입력하세요' %>
+              <%= form_tag search_path, method: :get, class: 'navbar-search' do %>
+                <%= text_field_tag :query, params[:query], class: 'search-query', placeholder: '리포트 제목을 입력하세요' %>
               <% end %>
             </li>
             <li><%= link_to "마이 페이지", reports_path %></li>
