@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :search]
 
   def search
-    @reports = Report.text_search(params[:query]).order('id DESC')
+    @reports = Report.text_search(params[:query])
   end
 
   def edit
@@ -25,11 +25,11 @@ class ReportsController < ApplicationController
 
   def index
     if user_signed_in?
-      @reports = Report.paginate :page => params[:page], :per_page => 7, :order => 'id DESC', :conditions => ['user_id =?', current_user.id]
+      @reports = Report.paginate :page => params[:page], :per_page => 7, :conditions => ['user_id =?', current_user.id]
       if (@reports.count <= (7 * (params[:page].to_i - 1)))
         if (params[:page].to_i > 1)
           params[:page] = params[:page].to_i - 1
-          @reports = Report.paginate :page => params[:page], :per_page => 7, :order => 'id DESC', :conditions => ['user_id =?', current_user.id]
+          @reports = Report.paginate :page => params[:page], :per_page => 7, :conditions => ['user_id =?', current_user.id]
         end
       end
       session[:page] = params[:page]
