@@ -1,6 +1,6 @@
 <h2>리포트 수정</h2>
 
-<%= form_for @report, :url => report_path(@report), :method => :put, :html => { :multipart => true } do |f| %>
+<%= form_for @report, :url => { :action => 'update' }, :html => { :multipart => true } do |f| %>
 
   <%= render 'error_messages' %>
 

@@ -7,12 +7,19 @@ class ReportsController < ApplicationController
     @reports = Report.text_search(params[:query])
   end
 
+  def show
+    redirect_to :action => :edit
+  end
+
   def edit
-    @report = Report.find(params[:id])
+    @report = Report.find_by_id(params[:id])
+    if @report.nil?
+      redirect_to :action => :index
+    end
   end
 
   def update
-    @report = Report.find(params[:id])
+    @report = Report.find_by_id(params[:id])
 
     respond_to do |format|
       if @report.user_id == current_user.id && @report.update_attributes(params[:report])
@@ -43,7 +50,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @user = User.find(current_user.id)
+    @user = User.find_by_id(current_user.id)
     @report = @user.reports.build(params[:report])
 
     if @report.save
@@ -56,7 +63,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report = Report.find(params[:id])
+    @report = Report.find_by_id(params[:id])
 
     if @report.user_id == current_user.id && @report.destroy
       flash[:notice] = "Report was successfully deleted."
