@@ -26,14 +26,14 @@
       </tr>
     </thead>
     <tbody>
-      <% @reports.each do |r| %>
+      <% @reports.each do |report| %>
         <tr>
-          <td><%= r.id %></td>
-          <td><%= link_to r.title, '#' %>
+          <td><%= report.id %></td>
+          <td><%= link_to report.title, edit_report_path(report) %>
           <td>10</td>
           <td>5</td>
           <td>$100</td>
-          <td><%= ago(r.created_at) %></td>
+          <td><%= ago(report.created_at) %></td>
           <td class="span3">
             <span class="btn-group" style="float:right">
               <a class="btn btn-mini" href="#"><i class="icon-user icon-white"></i> Share</a>
@@ -46,10 +46,10 @@
               </ul>
             </span>
             <%= link_to '지우기',
-              report_path(r),
+              report_path(report),
               :method => :delete,
               :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', :style => "float:right" %>
-            <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-info', :style => "float:right" %>
+            <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info', :style => "float:right" %>
           </td>
         </tr>
       <% end %>

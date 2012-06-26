@@ -7,6 +7,22 @@ class ReportsController < ApplicationController
     @reports = Report.text_search(params[:query]).order('id DESC')
   end
 
+  def edit
+    @report = Report.find(params[:id])
+  end
+
+  def update
+    @report = Report.find(params[:id])
+
+    respond_to do |format|
+      if @report.user_id == current_user.id && @report.update_attributes(params[:report])
+        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
+  end
+
   def index
     if user_signed_in?
       @reports = Report.paginate :page => params[:page], :per_page => 7, :order => 'id DESC', :conditions => ['user_id =?', current_user.id]
@@ -41,7 +57,8 @@ class ReportsController < ApplicationController
 
   def destroy
     @report = Report.find(params[:id])
-    if @report.destroy
+
+    if @report.user_id == current_user.id && @report.destroy
       flash[:notice] = "Report was successfully deleted."
     else
       flash[:error] = "Error."
