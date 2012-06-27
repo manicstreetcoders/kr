@@ -4,7 +4,12 @@
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
 
-  <p><small><a title="Enter using facebook account" href="#" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a></small> 로 접속하세요. 아니면 이메일과 패스워드를 입력해주세요.</p>
+  <p>
+  <%= link_to user_omniauth_authorize_path(:facebook), :class => "zocial facebook" do %>
+    <span>Facebook</span>
+  <% end %>
+  이나 
+  <a title="Enter using twitter account" href="#" class="zocial twitter "><span>Twitter</span></a> 로 접속하세요. 아니면 이메일과 패스워드를 입력해주세요.</p>
 
   <br />
 

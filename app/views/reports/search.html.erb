@@ -13,7 +13,7 @@
           <th>Sales</th>
           <th>Revenues</th>
           <th>올린 날짜</th>
-          <th>액션</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -26,14 +26,7 @@
             <td>$100</td>
             <td><%= ago(r.created_at) %></td>
             <td>
-              <%= link_to '편집',
-                '#', :class => 'btn btn-mini' %>
               <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-info' %>
-              <%= link_to '지우기',
-                report_path(r),
-                :method => :delete,
-                :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-              <%= link_to '공유', '#', :class => 'btn btn-mini' %>
               <%= link_to '이메일', '#', :class => 'btn btn-mini' %>
             </td>
           </tr>

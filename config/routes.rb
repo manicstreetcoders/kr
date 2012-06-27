@@ -1,4 +1,6 @@
 Kr::Application.routes.draw do
+  root :to => 'reports#index'
+
   resources :reports
 
   match 'search' => 'reports#search'
@@ -11,7 +13,6 @@ Kr::Application.routes.draw do
   match '/settings/edit', to: 'settings#edit', :as => :edit_setting, :via => :get
   match '/settings/update', to: 'settings#update', :as => :update_setting, :via => :put
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  root :to => 'reports#index'
 end

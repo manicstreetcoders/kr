@@ -9,7 +9,14 @@
 
   <%= devise_error_messages! %>
 
-  <p><small><a title="Enter using facebook account" href="#" id="facebook_btn" class="zocial facebook "><span>Facebook</span></a></small> 이나 <small><a title="Enter using twitter account" href="#" id="twitter_btn" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.</p>
+  <p>
+  <small>
+  <%= link_to user_omniauth_authorize_path(:facebook), :class => "zocial facebook" do %>
+    <span>Facebook</span>
+  <% end %>
+  </small> 이나 
+  <small><a title="Enter using twitter account" href="#" id="twitter_btn" class="zocial twitter "><span>Twitter</span></a></small> 로 가입하세요. 아니면 가입을 위해 이메일과 패스워드를 입력해주세요.
+  </p>
 
   <div class='input-prepend'>
     <span class='add-on'><i class='icon-envelope'></i></span><%= f.email_field :email, :class => 'span2', :placeholder => "이메일" %>
@@ -31,12 +38,6 @@
 
 <% end %>
 
-<% if false %>
 <%= render "devise/shared/links" %>
-<% end %>
-
-<%- if controller_name != 'sessions' %>
-  <%= link_to "로그인", new_session_path(resource_name) %><br />
-<% end -%>
 
 </div> 
