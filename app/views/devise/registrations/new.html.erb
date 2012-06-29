@@ -5,7 +5,7 @@
   <br \>
   <br \>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'well form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'well form-inline', :'accept-charset' => 'utf-8' } ) do |f| %>
 
   <%= devise_error_messages! %>
 

@@ -27,3 +27,6 @@ if (window.location.hash == '#_=_') {
   history.pushState('', document.title, window.location.pathname); // nice and clean
   e.preventDefault(); // no page reload
 }
+
+$(".dropdown-toggle").click(function() {
+});

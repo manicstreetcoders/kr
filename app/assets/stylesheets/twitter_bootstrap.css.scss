@@ -13,3 +13,11 @@ body {
 .hero-unit {
 //  background-color: #eeeeee;
 }
+
+ul.nav li.dropdown:hover ul.dropdown-menu {
+  display:block;   
+}
+
+.dropdown-menu {
+  margin: -1px 0 0;
+}
