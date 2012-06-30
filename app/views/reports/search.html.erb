@@ -3,15 +3,14 @@
   <h2>Not found</h2>
   <br />
   <% else %>
-    <h2>Search results</h2>
+    <h2>검색 결과</h2>
+    <br />
     <table class='table table-striped'>
       <thead>
         <tr>
-          <th>ID</th>
+          <th>작성자</th>
           <th>제목</th>
-          <th>View</th>
-          <th>Sales</th>
-          <th>Revenues</th>
+          <th>판매 횟수</th>
           <th>올린 날짜</th>
           <th></th>
         </tr>
@@ -19,12 +18,10 @@
       <tbody>
         <% @reports.each do |r| %>
           <tr>
-            <td><%= r.id %></td>
+            <td><%= email(r.user_id) %></td>
             <td><%= link_to r.title, '#' %>
-            <td>10</td>
             <td>5</td>
-            <td>$100</td>
-            <td><%= ago(r.created_at) %></td>
+            <td><%= r.created_at %></td>
             <td>
               <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-info' %>
               <%= link_to '이메일', '#', :class => 'btn btn-mini' %>
