@@ -16,9 +16,9 @@
         <% if user_signed_in? %>
           <ul class="nav">
             <li>
-              <%= form_tag search_path, method: :get, class: 'navbar-search' do %>
-                <i class='icon-search'></i>
+              <%= form_tag search_path, method: :get, class: 'navbar-search form-inline', name: 'search-form' do %>
                 <%= text_field_tag :query, params[:query], class: 'search-query', placeholder: '리포트 제목을 입력하세요' %>
+                <input type=submit value="Search" class='search-query'>
               <% end %>
             </li>
             <li>
