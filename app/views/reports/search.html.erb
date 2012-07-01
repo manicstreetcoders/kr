@@ -25,7 +25,11 @@
             <td>1,000 원</td>
             <td><%= report.created_at %></td>
             <td>
-              <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info' %>
+              <% if report.user_id == current_user.id %>
+                <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info' %>
+              <% else %>
+                <%= link_to '구매', report.document.url, :class => 'btn btn-mini btn-info' %>
+              <% end %>
               <%= link_to '이메일', '#', :class => 'btn btn-mini' %>
             </td>
           </tr>
