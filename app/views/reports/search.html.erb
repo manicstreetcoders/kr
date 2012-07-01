@@ -16,14 +16,14 @@
         </tr>
       </thead>
       <tbody>
-        <% @reports.each do |r| %>
+        <% @reports.each do |report| %>
           <tr>
-            <td><%= email(r.user_id) %></td>
-            <td><%= link_to r.title, '#' %>
+            <td><%= email(report.user_id) %></td>
+            <td><%= link_to report.title, report_path(report) %>
             <td>5</td>
-            <td><%= r.created_at %></td>
+            <td><%= report.created_at %></td>
             <td>
-              <%= link_to '다운로드', r.document.url, :class => 'btn btn-mini btn-info' %>
+              <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info' %>
               <%= link_to '이메일', '#', :class => 'btn btn-mini' %>
             </td>
           </tr>

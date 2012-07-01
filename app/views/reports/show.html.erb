@@ -1,0 +1,21 @@
+<h2>리포트 보기</h2>
+
+<%= render 'error_messages' %>
+
+<br />
+
+작성자: <%= email(@report.user_id) %>
+
+<br />
+
+제목: <%= @report.title %>
+
+<br />
+
+<%= link_to '리포트 보기', @report.document.url, :class => 'btn btn-info' %>
+
+<br />
+
+<%= link_to :back, :class => 'btn btn-primary' do %>
+  &laquo; 뒤로
+<% end %>

@@ -8,7 +8,12 @@ class ReportsController < ApplicationController
   end
 
   def show
-    redirect_to :action => :edit
+    @report = Report.find(params[:id])
+    if @report.user_id == current_user.id
+      redirect_to :action => :edit
+    else
+      render :action => :show
+    end
   end
 
   def edit
