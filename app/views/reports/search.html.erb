@@ -11,6 +11,7 @@
           <th>작성자</th>
           <th>제목</th>
           <th>판매 횟수</th>
+          <th>가격</th>
           <th>올린 날짜</th>
           <th></th>
         </tr>
@@ -21,6 +22,7 @@
             <td><%= email(report.user_id) %></td>
             <td><%= link_to report.title, report_path(report) %>
             <td>5</td>
+            <td>1,000 원</td>
             <td><%= report.created_at %></td>
             <td>
               <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info' %>
