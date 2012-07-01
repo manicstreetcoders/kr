@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-collapse
-//= require bootstrap-dropdown
+//= require bootstrap
 //= require_tree .
 
 window.setTimeout(function() {
