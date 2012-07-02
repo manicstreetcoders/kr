@@ -1,6 +1,7 @@
 <div class="hero-unit">
   <% if user_signed_in? %>
-    <h2><%= image_tag @current_user.avatar.url(:thumb) %>
+    <h2>
+    <%= image_tag @current_user.avatar.url(:thumb) %>
     <%= current_user.email %> 님, koReport BETA 에 오신 것을 환영합니다.</h2>
   <% else %>
     <h2>koReport BETA 에 오신 것을 환영합니다.</h2>
