@@ -28,7 +28,7 @@
               <% if report.user_id == current_user.id %>
                 <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info' %>
               <% else %>
-                <%= link_to '구매', report.document.url, :class => 'btn btn-mini btn-info' %>
+                <%= link_to '구매', report.document.url, :class => 'btn btn-mini btn-success' %>
               <% end %>
               <%= link_to '이메일', '#', :class => 'btn btn-mini' %>
             </td>
