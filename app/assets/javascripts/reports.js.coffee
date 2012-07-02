@@ -9,3 +9,6 @@ $ ->
   $('#facebook_btn').click (ev) ->
     alert '준비중'
     ev.preventDefault()
+
+$ ->
+  $("#mytags").tagit()

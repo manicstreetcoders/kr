@@ -6,18 +6,24 @@
 
   <br />
 
+  업로드 화일
   <div class="input-prepend">
     <span class="add-on"><i class="icon-file"></i></span><%= f.file_field :document , :class => 'span4' %>
   </div>
 
   <br />
 
+  리포트 제목
   <div class="input-prepend">
     <span class="add-on"><i class="icon-font"></i></span><%= f.text_field :title, :class => 'span4', :placeholder => '리포트 제목' %>
   </div>
 
   <br />
 
+  <i class="icon-tags"></i> 관련 태그
+  <ul id="mytags">
+    <li>리포트</li>
+  </ul>
   <button type="submit" class="btn btn-primary"><i class="icon-upload"></i> 리포트 등록</button>
 
 <% end %>
