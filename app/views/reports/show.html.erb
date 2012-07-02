@@ -7,14 +7,19 @@
 작성자: <%= email(@report.user_id) %>
 
 <br />
+<br />
 
 제목: <%= @report.title %>
 
+<br />
 <br />
 
 <%= link_to '리포트 보기', @report.document.url, :class => 'btn btn-info' %>
 
 <br />
+<br />
+
+<%= render 'disqus' %>
 
 <%= link_to :back, :class => 'btn btn-primary' do %>
   &laquo; 뒤로
