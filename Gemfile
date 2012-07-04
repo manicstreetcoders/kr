@@ -69,3 +69,5 @@ gem 'omniauth-facebook'
 group :assets do
   gem 'jquery-ui-rails'
 end
+
+gem 'acts-as-taggable-on', '~> 2.3.1'

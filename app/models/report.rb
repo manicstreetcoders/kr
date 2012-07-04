@@ -5,6 +5,8 @@ class Report < ActiveRecord::Base
 
   has_attached_file :document
 
+  acts_as_ordered_taggable
+
   validates :title, :presence => true, :length => { :minimum => 2 }
 
   validates_attachment :document, :presence => true,

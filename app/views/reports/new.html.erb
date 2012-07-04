@@ -22,7 +22,9 @@
 
   <i class="icon-tags"></i> 관련 태그
   <ul id="mytags">
-    <li>리포트</li>
+    <% @report.tag_list.each do |tag| %>
+      <li><%= tag %></li>
+    <% end %>
   </ul>
 
   <br />
