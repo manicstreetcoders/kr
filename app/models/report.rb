@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-  attr_accessible :title, :document
+  attr_accessible :title, :document, :tag_list
 
   belongs_to :user
 

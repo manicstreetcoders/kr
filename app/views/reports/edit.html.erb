@@ -28,11 +28,7 @@
   <br />
 
   <i class="icon-tags"></i> 관련태그
-  <ul id="mytags">
-    <% @report.tag_list.each do |tag| %>
-    <li><%= tag %></li>
-    <% end %>
-  </ul>
+  <input name="report[tag_list]" id="mytags" value="<%= @report.tag_list %>">
 
   <button type="submit" class="btn btn-primary"><i class="icon-save"></i> 변경사항 저장하기</button>
 
