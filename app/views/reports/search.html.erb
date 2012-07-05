@@ -21,7 +21,7 @@
           <tr>
             <td><%= email(report.user_id) %></td>
             <td><%= link_to report.title, report_path(report) %>
-            <td><%= report.tag_list %>
+            <td><span class="post-tag"><%= report.tag_list %></span></td>
             <td>5</td>
             <td>1,000 원</td>
             <td>
