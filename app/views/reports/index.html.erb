@@ -30,7 +30,9 @@
       <% @reports.each do |report| %>
         <tr>
           <td><%= report.id %></td>
-          <td class="span3"><%= link_to report.title, edit_report_path(report) %>
+          <td class="span3">
+            <%= link_to report.title, report_path(report) %>
+          </td>
           <td>
             <%= render :partial => 'tag_list', :locals => { :report => report } %>
           </td>
@@ -47,11 +49,7 @@
                 <li><a href="#"><i class="icon-envelope"></i> Email</a></li>
               </ul>
             </span>
-            <%= link_to '지우기',
-              report_path(report),
-              :method => :delete,
-              :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', :style => "float:right" %>
-            <%= link_to '다운로드', report.document.url, :class => 'btn btn-mini btn-info', :style => "float:right" %>
+            <%= link_to 'Edit', edit_report_path(report), :class => 'btn btn-mini', :style => "float:right" %>
           </td>
         </tr>
       <% end %>

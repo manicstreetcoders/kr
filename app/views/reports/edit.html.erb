@@ -30,11 +30,13 @@
   <i class="icon-tags"></i> 관련태그
   <input name="report[tag_list]" id="mytags" value="<%= @report.tag_list %>">
 
+  <br />
+
   <button type="submit" class="btn btn-primary"><i class="icon-save"></i> 변경사항 저장하기</button>
-
-  <br />
-  <br />
-
-  <%= render 'disqus' %>
+  <%= link_to :back, :class => 'btn btn-primary' do %>
+    &laquo; 뒤로
+  <% end %>
+  <%= link_to '리포트 지우기', report_path(@report), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
 
 <% end %>
+

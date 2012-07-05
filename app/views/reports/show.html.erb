@@ -30,12 +30,11 @@ ID: <%= @report.id %>
 <br />
 
 <%= link_to '리포트 구매', @report.document.url, :class => 'btn btn-success' %>
+<%= link_to :back, :class => 'btn btn-primary' do %>
+  &laquo; 뒤로
+<% end %>
 
 <br />
 <br />
 
 <%= render 'disqus' %>
-
-<%= link_to :back, :class => 'btn btn-primary' do %>
-  &laquo; 뒤로
-<% end %>

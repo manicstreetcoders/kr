@@ -9,16 +9,15 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
-    if @report.user_id == current_user.id
-      redirect_to :action => :edit
-    else
-      render :action => :show
-    end
+    render :action => :show
   end
 
   def edit
     @report = Report.find_by_id(params[:id])
     if @report.nil?
+      redirect_to :action => :index
+    end
+    if @report.user_id != current_user.id
       redirect_to :action => :index
     end
   end
