@@ -19,7 +19,7 @@ ID: <%= @report.id %>
 <br />
 <br />
 
-태그: <span class="post-tag"><%= @report.tag_list %></span>
+태그: <%= render :partial => 'tag_list', :locals => { :report => @report } %>
 
 <br />
 <br />
