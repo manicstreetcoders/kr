@@ -77,4 +77,8 @@ class ReportsController < ApplicationController
     
     redirect_to reports_path(@report, { :page => session[:page] })
   end
+
+  def tag_cloud
+    @tags = Report.tag_counts_on(:tags)
+  end
 end
