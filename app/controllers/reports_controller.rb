@@ -7,6 +7,11 @@ class ReportsController < ApplicationController
     @reports = Report.text_search(params[:query])
   end
 
+  def tagged
+    @reports = Report.tagged_with(params[:tag])
+    render :action => :search
+  end
+
   def show
     @report = Report.find(params[:id])
     render :action => :show

@@ -1,5 +1,5 @@
-              <% report.tag_list.each do |tag| %>
-                <span class="post-tag">
-                  <%= tag %>
-                </span>
-              <% end %>
+<% report.tag_list.each do |tag| %>
+  <%= link_to "/tagged/" + tag, :class => 'post-tag' do %>
+  <%= tag %>
+  <% end %>
+<% end %>

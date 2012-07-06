@@ -4,6 +4,7 @@ Kr::Application.routes.draw do
   resources :reports
 
   match 'search' => 'reports#search'
+  match 'tagged/:tag' => 'reports#tagged', :as => :tagged_report, :via => :get
 
 #  match '/reports', to: 'reports#index', :as => :reports, :via => :get
 #  match '/reports/:id', to: 'reports#show', :as => :report, :via => :get
