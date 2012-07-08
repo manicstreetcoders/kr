@@ -2,7 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
+@mixin post-tag-base {
+  color: #3E6D8E;
+  background-color: #E0EAF1;
+  border-bottom: 1px solid #3E6D8E;
+  border-right: 1px solid #7F9FB6;
+  padding: 3px 4px 3px 4px;
+  margin: 2px 2px 2px 0;
+  text-decoration: none;
+  font-size: 90%;
+  line-height: 2.4;
+  white-space: nowrap;
+}
+
+@mixin post-tag-hover-base
+{
+  background-color: #3E6D8E;
+  color: #E0EAF1;
+  border-bottom: 1px solid #37607D;
+  border-right: 1px solid #37607D;
+  text-decoration: none;
+}
+
+.post-tag {
+  @include post-tag-base;
+}
+
+.post-tag:hover {
+  @include post-tag-hover-base
+}
+
+.css1 { 
+  @include post-tag-base;
+  font-size: 1.0em; }
+
+.css1:hover {
+  @include post-tag-hover-base;
+  font-size: 1.0em; }
+
+.css2 { 
+  @include post-tag-base;
+  font-size: 1.2em; }
+
+.css2:hover {
+  @include post-tag-hover-base;
+  font-size: 1.2em; }
+
+.css3 { 
+  @include post-tag-base;
+  font-size: 1.4em; }
+
+.css3:hover {
+  @include post-tag-hover-base;
+  font-size: 1.4em; }
+
+.css4 { 
+  @include post-tag-base;
+  font-size: 1.6em; }
+.css4:hover {
+  @include post-tag-hover-base;
+  font-size: 1.6em; }
+
