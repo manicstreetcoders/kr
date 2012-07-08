@@ -49,6 +49,8 @@ class ReportsController < ApplicationController
         end
       end
       session[:page] = params[:page]
+
+      @tags = Report.tag_counts_on(:tags)
     else
       redirect_to new_user_registration_path
     end
@@ -81,9 +83,5 @@ class ReportsController < ApplicationController
     end
     
     redirect_to reports_path(@report, { :page => session[:page] })
-  end
-
-  def tag_cloud
-    @tags = Report.tag_counts_on(:tags)
   end
 end

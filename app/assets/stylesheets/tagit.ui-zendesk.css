@@ -47,8 +47,9 @@ ul.tagit li.tagit-choice a.tagit-close .text-icon:hover {
 ul.tagit input[type="text"] {
     color: #333333;
     background: none;
+
+    /* by zomo */
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
 }
- 

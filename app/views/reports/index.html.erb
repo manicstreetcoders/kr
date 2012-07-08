@@ -64,4 +64,10 @@
   <%= link_to search_path, :class => 'btn btn-primary btn-large' do %>
     등록 리포트 모두 보기 &raquo;
   <% end %>
+
+  <br />
+  <br />
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= link_to tag.name, '/tagged/' + tag.name, :class => css_class %>
+  <% end %>
 </div> 
