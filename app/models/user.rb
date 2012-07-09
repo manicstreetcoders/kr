@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
-  has_attached_file :avatar, :styles => { :thumb => "200x200>" }, :default_url => "/assets/default.jpg"
+  has_attached_file :avatar, :styles => { :thumb => "100x100>" }, :default_url => "/assets/default.jpg"
 
   has_many :reports
 
