@@ -4,7 +4,7 @@
 
 <br />
 
-ID: <%= @report.id %>
+리포트 ID: <%= @report.id %>
 
 <br />
 <br />
@@ -19,6 +19,10 @@ ID: <%= @report.id %>
 <br />
 <br />
 
+화일 타입: <%= @report.document_file_name.split(".", 2).second.upcase %>
+
+<br />
+<br />
 태그: <%= render :partial => 'tag_list', :locals => { :report => @report } %>
 
 <br />
