@@ -8,9 +8,9 @@
     <table class='table table-striped'>
       <thead>
         <tr>
-          <th>작성자</th>
           <th>제목</th>
           <th>태그</th>
+          <th>작성자</th>
           <th>판매 횟수</th>
           <th>가격</th>
           <th></th>
@@ -19,11 +19,11 @@
       <tbody>
         <% @reports.each do |report| %>
           <tr>
-            <td><%= email(report.user_id) %></td>
             <td><%= link_to report.title, report_path(report) %>
             <td>
               <%= render :partial => 'tag_list', :locals => { :report => report } %>
             </td>
+            <td><%= email(report.user_id) %></td>
             <td>5</td>
             <td>1,000 원</td>
             <td>
