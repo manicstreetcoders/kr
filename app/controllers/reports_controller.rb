@@ -32,7 +32,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.user_id == current_user.id && @report.update_attributes(params[:report])
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to edit_report_path, notice: 'Report was successfully updated.' }
       else
         format.html { render action: 'edit' }
       end
