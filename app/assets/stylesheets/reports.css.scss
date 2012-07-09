@@ -59,6 +59,7 @@
 .css4 { 
   @include post-tag-base;
   font-size: 1.6em; }
+
 .css4:hover {
   @include post-tag-hover-base;
   font-size: 1.6em; }

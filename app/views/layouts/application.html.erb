@@ -14,8 +14,16 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
-  <%= render :partial => 'layouts/flash', object: flash %>
-  <%= yield %>
+  <div class="row">
+    <div class="span10">
+    <%= render :partial => 'layouts/flash', object: flash %>
+    <%= yield %>
+    </div>
+    <div class="span2">
+      <%= render :partial => 'reports/tag_cloud' %>
+    </div>
+  </div>
+
   <%= render 'layouts/footer' %>
 <!--
   <%= render 'layouts/debug' %>
