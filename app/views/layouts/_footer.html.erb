@@ -1,32 +1,13 @@
 <footer class="footer">
-  <div class="row">
-    <div id="facebook_caching">
-      <% cache "facebook_caching#{Date.today}" do %>
-        <div class="span4" style="padding-top: 5px;">
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));
-            </script>
-            <div class="fb-like" data-href="https://www.facebook.com/koreport" data-send="true" data-width="450" data-show-faces="false" data-font="verdana"></div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="span8">
-      <ul class="nav pull-right">
+      <ul class="nav pull-left">
         <li style="padding:7px"><%= link_to "홈", "/" %></li>
         <li style="padding:7px"><%= link_to "더 알아보기", '#' %></li>
         <li style="padding:7px"><%= link_to "도움말", '#' %></li>
+      </ul>
+      <ul class="nav pull-right">
         <li><%= link_to image_tag("twitter_32.png", :border => 0), "http://twitter.com/koreport", :target => "_blank" %></li>
         <li><%= link_to image_tag("facebook_32.png", :border => 0), "http://facebook.com/koreport", :target => "_blank" %></li>
       </ul>
-    </div>
-  </div>
 
 <!--
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
