@@ -1,5 +1,5 @@
 <% if params[:controller] == 'reports' && params[:action] == 'index' && @tags %>
-  <h3>인기 자료 태그들<h3>
+  <h3>태그들<h3>
   <div id='tag_cloud'>
     <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
       <%= link_to tag.name, '/tagged/' + tag.name, :class => css_class %>
