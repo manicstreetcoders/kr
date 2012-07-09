@@ -1,6 +1,19 @@
 module ReportsHelper
   include ActsAsTaggableOn::TagsHelper
 
+  def report_file_extension( report )
+    if report && report.document_file_name
+      split = report.document_file_name.split(".", 2)
+      if split
+        extension = split.second
+        if extension
+          return extension.upcase
+        end
+      end
+    end
+    return "Unknown"
+  end
+
   def avatar_url( user_id)
     user = User.find_by_id(user_id)
     if user
