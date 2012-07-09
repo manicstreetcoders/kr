@@ -32,6 +32,9 @@
   @include post-tag-hover-base
 }
 
+#tag_cloud {
+  font-size: 14px;
+  padding-top: 5px;
 .css1 { 
   @include post-tag-base;
   font-size: 90%; }
@@ -50,17 +53,17 @@
 
 .css3 { 
   @include post-tag-base;
-  font-size: 110%; }
+  font-size: 120%; }
 
 .css3:hover {
   @include post-tag-hover-base;
-  font-size: 110%; }
+  font-size: 120%; }
 
 .css4 { 
   @include post-tag-base;
-  font-size: 120%; }
+  font-size: 140%; }
 
 .css4:hover {
   @include post-tag-hover-base;
-  font-size: 120%; }
-
+  font-size: 140%; }
+}
