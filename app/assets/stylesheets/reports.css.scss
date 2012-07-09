@@ -34,33 +34,33 @@
 
 .css1 { 
   @include post-tag-base;
-  font-size: 1.0em; }
+  font-size: 90%; }
 
 .css1:hover {
   @include post-tag-hover-base;
-  font-size: 1.0em; }
+  font-size: 90%; }
 
 .css2 { 
   @include post-tag-base;
-  font-size: 1.1em; }
+  font-size: 100%; }
 
 .css2:hover {
   @include post-tag-hover-base;
-  font-size: 1.1em; }
+  font-size: 100%; }
 
 .css3 { 
   @include post-tag-base;
-  font-size: 1.2em; }
+  font-size: 110%; }
 
 .css3:hover {
   @include post-tag-hover-base;
-  font-size: 1.2em; }
+  font-size: 110%; }
 
 .css4 { 
   @include post-tag-base;
-  font-size: 1.6em; }
+  font-size: 120%; }
 
 .css4:hover {
   @include post-tag-hover-base;
-  font-size: 1.6em; }
+  font-size: 120%; }
 
