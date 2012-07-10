@@ -8,9 +8,8 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th class="span3">제목</th>
+        <th class="span4">제목</th>
         <th>태그</th>
-        <th>View</th>
         <th>판매 횟수</th>
         <th>매출</th>
         <th></th>
@@ -20,13 +19,12 @@
       <% @reports.each do |report| %>
         <tr>
           <td><%= report.id %></td>
-          <td class="span3">
+          <td class="span4">
             <%= link_to report.title, report_path(report) %>
           </td>
           <td>
             <%= render :partial => 'tag_list', :locals => { :report => report } %>
           </td>
-          <td>10</td>
           <td>5</td>
           <td>10000 원</td>
           <td>
