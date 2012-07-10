@@ -13,9 +13,14 @@
 
   <br />
 
+  포맷: <%= report_file_extension( @report ) %>
+
+  <br />
+  <br />
+
   보기:
   <div>
-    <%= link_to '리포트 보기', @report.document.url, :class => 'btn btn-info' %>
+    <%= link_to '리포트 다운', @report.document.url, :class => 'btn btn-info' %>
   </div>
 
   <br />
