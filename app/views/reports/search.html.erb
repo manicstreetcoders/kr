@@ -8,6 +8,7 @@
     <table class='table table-striped'>
       <thead>
         <tr>
+          <th>No</th>
           <th class='span4'>제목</th>
           <th>태그</th>
           <th>작성자</th>
@@ -19,6 +20,7 @@
       <tbody>
         <% @reports.each do |report| %>
           <tr class='span4'>
+            <td><%= report.id %></td>
             <td><%= link_to report.title, report_path(report) %>
             <td>
               <%= render :partial => 'tag_list', :locals => { :report => report } %>
