@@ -3,9 +3,9 @@ module ReportsHelper
 
   def report_file_extension( report )
     if report && report.document_file_name
-      split = report.document_file_name.split(".", 2)
+      split = report.document_file_name.split(".")
       if split
-        extension = split.second
+        extension = split.last
         if extension
           return extension.upcase
         end
