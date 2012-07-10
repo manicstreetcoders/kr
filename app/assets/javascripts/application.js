@@ -30,3 +30,5 @@ if (window.location.hash == '#_=_') {
 
 $(".dropdown-toggle").click(function() {
 });
+
+Mousetrap.bind('/', function() { alert('Search'); });
