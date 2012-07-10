@@ -41,33 +41,33 @@
   padding-top: 5px;
 .css1 { 
   @include post-tag-base;
-  font-size: 90%; }
+  font-size: 80%; }
 
 .css1:hover {
   @include post-tag-hover-base;
-  font-size: 90%; }
+  font-size: 80%; }
 
 .css2 { 
   @include post-tag-base;
-  font-size: 100%; }
+  font-size: 90%; }
 
 .css2:hover {
   @include post-tag-hover-base;
-  font-size: 100%; }
+  font-size: 90%; }
 
 .css3 { 
   @include post-tag-base;
-  font-size: 120%; }
+  font-size: 100%; }
 
 .css3:hover {
   @include post-tag-hover-base;
-  font-size: 120%; }
+  font-size: 100%; }
 
 .css4 { 
   @include post-tag-base;
-  font-size: 140%; }
+  font-size: 130%; }
 
 .css4:hover {
   @include post-tag-hover-base;
-  font-size: 140%; }
+  font-size: 130%; }
 }
