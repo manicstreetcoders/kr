@@ -5,4 +5,6 @@ class Post < ActiveRecord::Base
   validates :content, :presence => true, :length => { :minimum => 3 }
 
   belongs_to :user
+
+  default_scope :order => 'posts.id DESC'
 end
