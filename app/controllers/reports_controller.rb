@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
 
   def tagged
     @reports = Report.tagged_with(params[:tag])
+    @tags = Report.tag_counts_on(:tags)
     render :action => :search
   end
 
