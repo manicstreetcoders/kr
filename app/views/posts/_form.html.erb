@@ -1,0 +1,12 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.text_area :title, :class => 'span8', :rows => 1 %>
+    <%= f.text_area :content, :class => 'text_field span8' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

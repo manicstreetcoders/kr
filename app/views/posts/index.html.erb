@@ -1,0 +1,21 @@
+<h3>질문게시판</h3>
+
+<table class='table table-striped'>
+  <tr>
+    <th>No</th>
+    <th>Subject</th>
+    <th>User</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.id %></td>
+    <td><%= link_to post.title, post_path(post) %></td>
+    <td><%= email(post.user_id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '글쓰기', new_post_path, :class => 'btn btn-primary' %>
