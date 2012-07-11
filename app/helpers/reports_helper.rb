@@ -2,7 +2,7 @@ module ReportsHelper
   include ActsAsTaggableOn::TagsHelper
 
   def report_file_extension( report )
-    if report && report.document_file_name
+    if report && report.document_file_name && report.document_file_name.match(/\./)
       split = report.document_file_name.split(".")
       if split
         extension = split.last
