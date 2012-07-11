@@ -14,7 +14,8 @@
 </p>
 
 
+<%= link_to 'Back', posts_path, :class => 'btn btn-mini' %>
 <% if @post.user_id == current_user.id %>
   <%= link_to '수정', edit_post_path(@post), :class => 'btn btn-mini' %> 
+  <%= link_to '지우기', post_path(@post), :method => :delete, :confirm => '지울까요?', :class => 'btn btn-mini btn-danger' %>
 <% end %>
-<%= link_to 'Back', posts_path, :class => 'btn btn-mini' %>
