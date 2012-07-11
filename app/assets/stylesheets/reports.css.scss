@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@mixin post-tag-base {
+@mixin post-tag-base($bk_color,$shadow_px) {
   color: #3E6D8E;
-  background-color: #E0EAF1;
-  border-bottom: 1px solid #3E6D8E;
-  border-right: 1px solid #7F9FB6;
+  background-color: $bk_color;
+//  border-bottom: 1px solid #3E6D8E;
+//  border-right: 1px solid #7F9FB6;
+  border-bottom: $shadow_px solid #3E6D8E;
+  border-right: $shadow_px solid #7F9FB6;
   padding: 3px 4px 3px 4px;
   margin: 2px 2px 2px 0;
   text-decoration: none;
@@ -17,57 +19,57 @@
   font-weight: normal;
 }
 
-@mixin post-tag-hover-base
+@mixin post-tag-hover-base($shadow_px)
 {
   background-color: #3E6D8E;
   color: #E0EAF1;
-  border-bottom: 1px solid #37607D;
-  border-right: 1px solid #37607D;
+  border-bottom: $shadow_px solid #37607D;
+  border-right: $shadow_px solid #37607D;
   text-decoration: none;
   font-style: normal;
   font-weight: normal;
 }
 
 .post-tag {
-  @include post-tag-base;
+  @include post-tag-base(#E0EAF1, 1px);;
 }
 
 .post-tag:hover {
-  @include post-tag-hover-base
+  @include post-tag-hover-base(1px)
 }
 
 #tag_cloud {
   font-size: 14px;
   padding-top: 5px;
 .css1 { 
-  @include post-tag-base;
+  @include post-tag-base(#FFFFFF, 0px);
   font-size: 80%; }
 
 .css1:hover {
-  @include post-tag-hover-base;
+  @include post-tag-hover-base(0px);
   font-size: 80%; }
 
 .css2 { 
-  @include post-tag-base;
+  @include post-tag-base(#FFFFFF, 0px);
   font-size: 90%; }
 
 .css2:hover {
-  @include post-tag-hover-base;
+  @include post-tag-hover-base(0px);
   font-size: 90%; }
 
 .css3 { 
-  @include post-tag-base;
+  @include post-tag-base(#FFFFFF, 0px);
   font-size: 100%; }
 
 .css3:hover {
-  @include post-tag-hover-base;
+  @include post-tag-hover-base(0px);
   font-size: 100%; }
 
 .css4 { 
-  @include post-tag-base;
+  @include post-tag-base(#FFFFFF, 0px);
   font-size: 130%; }
 
 .css4:hover {
-  @include post-tag-hover-base;
+  @include post-tag-hover-base(0px);
   font-size: 130%; }
 }
