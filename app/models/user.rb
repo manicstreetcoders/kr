@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :thumb => "100x100>" }, :default_url => "/assets/default.jpg"
 
   has_many :reports
+  has_many :posts
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first

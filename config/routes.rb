@@ -1,4 +1,6 @@
 Kr::Application.routes.draw do
+  resources :posts
+
   root :to => 'reports#index'
 
   resources :reports

@@ -1,4 +1,4 @@
-//@import 'bootswatch/united/variables';
+@import 'bootswatch/united/variables';
 
 @import 'bootstrap';
 body {
@@ -7,12 +7,12 @@ body {
 }
 @import 'bootstrap-responsive';
 
-//@import 'bootswatch/united/bootswatch';
+@import 'bootswatch/united/bootswatch';
 
 @import 'font-awesome';
 
 .hero-unit {
-//  background-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 ul.nav li.dropdown:hover ul.dropdown-menu {
