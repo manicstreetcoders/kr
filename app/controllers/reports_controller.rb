@@ -5,6 +5,7 @@ class ReportsController < ApplicationController
 
   def search
     @reports = Report.text_search(params[:query])
+    @tags = Report.tag_counts_on(:tags)
   end
 
   def tagged
