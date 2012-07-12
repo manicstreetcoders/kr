@@ -1,45 +1,47 @@
-<ul class='nav'>
-<li>
-  <%= link_to reports_path do %>
-    <i class='icon-dashboard'></i> 대쉬보드
-  <% end %>
-</li>
-<li>
-  <div id="noticeModal" class="modal hide fade">
-    <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h3><i class='icon-exclamation-sign'></i> 공지</h3>
+<div class='sidebar-nav'>
+  <ul class='nav nav-list'>
+  <li>
+    <%= link_to reports_path do %>
+      <i class='icon-dashboard'></i> 대쉬보드
+    <% end %>
+  </li>
+  <li>
+    <div id="noticeModal" class="modal hide fade">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h3><i class='icon-exclamation-sign'></i> 공지</h3>
+      </div>
+      <div class="modal-body">
+      <h4>결제모듈관련</h4>
+      <br />
+      <p>고객여러분 안녕하십니까.</p>
+      <p>지금 통장 입금을 통한 결제 플로우를 구현중입니다.</p>
+      <p>불편하시더라도 조금만 참아주십시요.</p>
+      <p>앞으로도 최선을 다하는 코리포트가 되겠습니다.</p>
+      <p>2012 년 7 월 12 일</p>
+      <p>코리포트 일동</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+      </div>
     </div>
-    <div class="modal-body">
-    <h4>결제모듈관련</h4>
-    <br />
-    <p>고객여러분 안녕하십니까.</p>
-    <p>지금 통장 입금을 통한 결제 플로우를 구현중입니다.</p>
-    <p>불편하시더라도 조금만 참아주십시요.</p>
-    <p>앞으로도 최선을 다하는 코리포트가 되겠습니다.</p>
-    <p>2012 년 7 월 12 일</p>
-    <p>코리포트 일동</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-    </div>
-  </div>
-  <a data-toggle="modal" href="#noticeModal" class="">
-    <i class='icon-exclamation-sign'></i> 공지
-  </a>
-</li>
-<li>
-  <%= link_to '#', :class => '' do %>
-    <i class='icon-search'></i> 검색
-  <% end %>
-</li>
-<li>
-  <%= link_to posts_path, :class => '' do %>
-    <i class='icon-heart'></i> 질문게시판
-  <% end %>
-<li>
-  <%= link_to posts_path, :class => '' do %>
-    <i class='icon-book'></i> 자료요청게시판
-  <% end %>
-</li>
-</ul>
+    <a data-toggle="modal" href="#noticeModal" class="">
+      <i class='icon-exclamation-sign'></i> 공지
+    </a>
+  </li>
+  <li>
+    <%= link_to '#', :class => '' do %>
+      <i class='icon-search'></i> 검색
+    <% end %>
+  </li>
+  <li>
+    <%= link_to posts_path, :class => '' do %>
+      <i class='icon-heart'></i> 질문게시판
+    <% end %>
+  <li>
+    <%= link_to posts_path, :class => '' do %>
+      <i class='icon-book'></i> 자료요청게시판
+    <% end %>
+  </li>
+  </ul>
+</div>
