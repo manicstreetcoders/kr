@@ -31,4 +31,6 @@ if (window.location.hash == '#_=_') {
 $(".dropdown-toggle").click(function() {
 });
 
-Mousetrap.bind('/', function() { alert('Search'); });
+Mousetrap.bind('d', function() { window.location = '/reports'; });
+Mousetrap.bind('/', function() { window.location = '/search'; });
+Mousetrap.bind('q', function() { window.location = '/posts'; });
