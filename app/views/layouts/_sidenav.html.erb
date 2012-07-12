@@ -1,10 +1,14 @@
 <ul class='nav'>
-<li><%= link_to '대쉬보드', reports_path %></li>
+<li>
+  <%= link_to reports_path do %>
+    <i class='icon-dashboard'></i> 대쉬보드
+  <% end %>
+</li>
 <li>
   <div id="noticeModal" class="modal hide fade">
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h3>공지</h3>
+    <h3><i class='icon-exclamation-sign'></i> 공지</h3>
     </div>
     <div class="modal-body">
     <h4>결제모듈관련</h4>
@@ -20,9 +24,22 @@
       <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
     </div>
   </div>
-  <a data-toggle="modal" href="#noticeModal" class="">공지</a>
+  <a data-toggle="modal" href="#noticeModal" class="">
+    <i class='icon-exclamation-sign'></i> 공지
+  </a>
 </li>
-<li><%= link_to '검색', '#', :class => '' %></li>
-<li><%= link_to '질문게시판', posts_path, :class => '' %></li>
-<li><%= link_to '자료요청당', posts_path, :class => '' %></li>
+<li>
+  <%= link_to '#', :class => '' do %>
+    <i class='icon-search'></i> 검색
+  <% end %>
+</li>
+<li>
+  <%= link_to posts_path, :class => '' do %>
+    <i class='icon-heart'></i> 질문게시판
+  <% end %>
+<li>
+  <%= link_to posts_path, :class => '' do %>
+    <i class='icon-book'></i> 자료요청게시판
+  <% end %>
+</li>
 </ul>
