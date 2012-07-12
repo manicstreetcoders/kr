@@ -51,25 +51,25 @@
 
 .css2 { 
   @include post-tag-base(#FFFFFF, 0px);
-  font-size: 90%; }
+  font-size: 100%; }
 
 .css2:hover {
   @include post-tag-hover-base(0px);
-  font-size: 90%; }
+  font-size: 100%; }
 
 .css3 { 
   @include post-tag-base(#FFFFFF, 0px);
-  font-size: 100%; }
+  font-size: 120%; }
 
 .css3:hover {
   @include post-tag-hover-base(0px);
-  font-size: 100%; }
+  font-size: 120%; }
 
 .css4 { 
   @include post-tag-base(#FFFFFF, 0px);
-  font-size: 130%; }
+  font-size: 150%; }
 
 .css4:hover {
   @include post-tag-hover-base(0px);
-  font-size: 130%; }
+  font-size: 150%; }
 }
