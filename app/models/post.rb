@@ -7,4 +7,6 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   default_scope :order => 'posts.id DESC'
+
+  acts_as_commentable
 end
