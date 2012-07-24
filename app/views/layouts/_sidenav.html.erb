@@ -1,5 +1,19 @@
 <div class='sidebar-nav'>
   <ul class='nav nav-list'>
+  <% if user_signed_in? %>
+    <li>
+      <%= image_tag current_user.avatar.url(:thumb) %>
+    </li>
+    <li>
+      <%= current_user.email %>님
+    </li>
+    <li>
+      등급: 절대상인
+    </li>
+    <li>
+      &nbsp;
+    </li>
+  <% end %>
   <li>
     <%= link_to reports_path do %>
       <i class='icon-dashboard'></i> 대쉬보드

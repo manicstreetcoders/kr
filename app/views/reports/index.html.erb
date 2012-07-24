@@ -1,55 +1,49 @@
-<div>
-  <h2><%= image_tag @current_user.avatar.url(:thumb) %>
-  <%= current_user.email %> 님, koReport BETA 에 오신 것을 환영합니다.</h2>
-</div>
-<div style="padding-top:20px">
-  <h3>내가 올린 리포트들</h3>
-  <table class='table table-striped'>
-    <thead>
+<h3>내가 올린 리포트들</h3>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th class="span4">제목</th>
+      <th>태그</th>
+      <th>판매 횟수</th>
+      <th>매출</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |report| %>
       <tr>
-        <th>No</th>
-        <th class="span4">제목</th>
-        <th>태그</th>
-        <th>판매 횟수</th>
-        <th>매출</th>
-        <th></th>
+        <td><%= report.id %></td>
+        <td class="span4">
+          <%= link_to report.title, report_path(report) %>
+        </td>
+        <td>
+          <%= render :partial => 'tag_list', :locals => { :report => report } %>
+        </td>
+        <td>5</td>
+        <td>10,000 원</td>
+        <td>
+          <span class="btn-group" style="float:right">
+            <a class="btn btn-mini downdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Share<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li>
+              <li><a href="#"><i class="icon-facebook"></i> Facebook</a></li>
+              <li><a href="#"><i class="icon-pencil"></i> Me2day</a></li>
+              <li><a href="#"><i class="icon-envelope"></i> Email</a></li>
+            </ul>
+          </span>
+          <%= link_to '수정', edit_report_path(report), :class => 'btn btn-mini', :style => "float:right" %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @reports.each do |report| %>
-        <tr>
-          <td><%= report.id %></td>
-          <td class="span4">
-            <%= link_to report.title, report_path(report) %>
-          </td>
-          <td>
-            <%= render :partial => 'tag_list', :locals => { :report => report } %>
-          </td>
-          <td>5</td>
-          <td>10,000 원</td>
-          <td>
-            <span class="btn-group" style="float:right">
-              <a class="btn btn-mini downdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Share<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="icon-twitter"></i> Twitter</a></li>
-                <li><a href="#"><i class="icon-facebook"></i> Facebook</a></li>
-                <li><a href="#"><i class="icon-pencil"></i> Me2day</a></li>
-                <li><a href="#"><i class="icon-envelope"></i> Email</a></li>
-              </ul>
-            </span>
-            <%= link_to '수정', edit_report_path(report), :class => 'btn btn-mini', :style => "float:right" %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>
+    <% end %>
+  </tbody>
+</table>
 
-  <%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>
-    리포트 등록 &raquo;
-  <% end %>
-  <%= link_to search_path, :class => 'btn btn-primary btn-large' do %>
-    등록 리포트 모두 보기 &raquo;
-  <% end %>
-</div> 
+<%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>
+
+<%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>
+  리포트 등록 &raquo;
+<% end %>
+<%= link_to search_path, :class => 'btn btn-primary btn-large' do %>
+  등록 리포트 모두 보기 &raquo;
+<% end %>
