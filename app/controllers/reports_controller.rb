@@ -44,12 +44,7 @@ class ReportsController < ApplicationController
   def index
     if user_signed_in?
       @reports = Report.paginate :page => params[:page], :per_page => 18, :conditions => ['user_id =?', current_user.id]
-      if (@reports.count <= (18 * (params[:page].to_i - 1)))
-        if (params[:page].to_i > 1)
-          params[:page] = params[:page].to_i - 1
-          @reports = Report.paginate :page => params[:page], :per_page => 18, :conditions => ['user_id =?', current_user.id]
-        end
-      end
+
       session[:page] = params[:page]
 
       @tags = Report.tag_counts_on(:tags)
