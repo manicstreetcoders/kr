@@ -72,4 +72,4 @@ end
 
 gem 'acts-as-taggable-on', '~> 2.3.1'
 
-gem 'acts_as_commentable_with_threading'
+gem 'acts_as_commentable_with_threading', :git => "git://github.com/elight/acts_as_commentable_with_threading"

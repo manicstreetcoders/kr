@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/elight/acts_as_commentable_with_threading
+  revision: 80e4934df4935a378cd5cac5bb454b16aca7f344
+  specs:
+    acts_as_commentable_with_threading (1.1.2)
+      activerecord (>= 3.0)
+      activesupport (~> 3.0)
+      awesome_nested_set (>= 2.0)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: b43693019d713cf89d06a172096a655990838333
   specs:
@@ -41,10 +50,6 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.3.1)
       rails (~> 3.0)
-    acts_as_commentable_with_threading (1.1.2)
-      activerecord (>= 3.0)
-      activesupport (~> 3.0)
-      awesome_nested_set (>= 2.0)
     arel (3.0.2)
     authbuttons-rails (0.1.2)
     awesome_nested_set (2.1.3)
@@ -191,7 +196,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 2.3.1)
-  acts_as_commentable_with_threading
+  acts_as_commentable_with_threading!
   authbuttons-rails
   bootstrap-sass (~> 2.0.4.0)
   bootswatch-rails
