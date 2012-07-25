@@ -11,8 +11,8 @@
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.id %></td>
-    <td><%= link_to post.title, post_path(post) %></td>
+    <td class='span1'><%= post.id %></td>
+    <td><%= link_to post_title_with_reply_count(post), post_path(post) %></td>
     <td><%= email(post.user_id) %></td>
   </tr>
 <% end %>
