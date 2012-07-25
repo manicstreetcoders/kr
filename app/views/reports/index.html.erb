@@ -44,9 +44,10 @@
 
 <%= will_paginate @reports, :renderer => BootstrapPagination::Rails %>
 
-<%= link_to new_report_path, :class => 'btn btn-primary btn-large' do %>
-  리포트 등록 &raquo;
+<%= link_to search_path, :class => 'btn btn-primary' do %>
+  리포트 모두 보기 &raquo;
 <% end %>
-<%= link_to search_path, :class => 'btn btn-primary btn-large' do %>
-  등록 리포트 모두 보기 &raquo;
+
+<%= link_to new_report_path, :class => 'btn' do %>
+  리포트 등록 &raquo;
 <% end %>
