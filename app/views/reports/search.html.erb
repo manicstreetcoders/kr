@@ -1,10 +1,11 @@
 <div>
   <% if @reports.count == 0 %>
-  <h2>Not found</h2>
+  <h3>Not found</h3>
   <br />
   <% else %>
-    <h2>검색 결과</h2>
-    <br />
+    <div class='page-header'>
+      <h3>검색 결과</h3>
+    </div>
     <table class='table table-striped'>
       <thead>
         <tr>
