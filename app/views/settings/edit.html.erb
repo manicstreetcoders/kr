@@ -10,10 +10,31 @@
     <li class='span3'>
       <div class='thumbnail'>
         <%= image_tag @user.avatar.url(:thumb) %>
-        <div class='caption'>
-          <h5><%= @user.email %></h5>
-          <%= f.file_field :avatar %>
-        </div>
+        <%= f.file_field :avatar %>
+      </div>
+          <table class='table'>
+          <tbody>
+            <tr>
+              <td>이메일:</td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td>회원권한:</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>포인트:</td>
+              <td>2985 점</td>
+            </tr>
+            <tr>
+              <td>회원가입일:</td>
+              <td>2011-12-08</td>
+            </tr>
+            <tr>
+              <td>최종접속일:</td>
+              <td>2012-07-25 10:58:30</td>
+          </tbody>
+          </table>
     </li>
   </ul>
 
