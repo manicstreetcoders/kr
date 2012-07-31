@@ -14,4 +14,8 @@ Kr::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   match '/posts/add_new_comment' => 'posts#add_new_comment', :as => 'add_new_comment_to_posts', :via => [:post]
+
+  resources :posts do
+    resources :comments
+  end
 end

@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comment_threads
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +24,7 @@ class PostsController < ApplicationController
     @comment.save
     redirect_to :action => :show, :id => @post
   end
+
   # GET /posts/new
   def new
     @post = Post.new

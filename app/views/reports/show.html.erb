@@ -4,39 +4,49 @@
 
 <br />
 
-리포트 ID: <%= @report.id %>
+<table class='table'>
+<thead>
+<th class='span2'>
+</th>
+<th></th>
+</thead>
+<tbody>
+<tr>
+<td>리포트 ID:</td>
+<td><%= @report.id %> </td>
+</tr>
 
-<br />
-<br />
+<tr>
+<td>작성자 사진:</td>
+<td><%= image_tag avatar_url(@report.user_id) %></td>
+</tr>
 
-작성자 사진: <%= image_tag avatar_url(@report.user_id) %>
+<tr>
+<td>작성자:</td>
+<td><%= email(@report.user_id) %></td>
+</tr>
 
-<br />
-<br />
+<tr>
+<td>제목:</td>
+<td><%= @report.title %></td>
+</tr>
 
-작성자: <%= email(@report.user_id) %>
+<tr>
+<td>포맷:</td>
+<td><%= report_file_extension( @report ) %></td>
+</tr>
 
-<br />
-<br />
+<tr>
+<td>태그:</td>
+<td><%= render :partial => 'tag_list', :locals => { :report => @report } %></td>
+</tr>
 
-제목: <%= @report.title %>
-
-<br />
-<br />
-
-포맷: <%= report_file_extension( @report ) %>
-
-<br />
-<br />
-태그: <%= render :partial => 'tag_list', :locals => { :report => @report } %>
-
-<br />
-<br />
-
-가격: 1,000 원
-
-<br />
-<br />
+<tr>
+<td>가격:</td>
+<td>1,000 원</td>
+</tr>
+</tbody>
+</table>
 
 <%= link_to '리포트 구매', @report.document.url, :class => 'btn btn-success' %>
 <%= link_to :back, :class => 'btn btn-primary' do %>
