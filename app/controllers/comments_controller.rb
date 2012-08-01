@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     if current_user.id == @comment.user_id
       @comment.destroy
+    end
     redirect_to post_path(@post)
   end
 end
