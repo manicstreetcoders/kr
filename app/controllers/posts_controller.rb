@@ -1,5 +1,8 @@
 
 class PostsController < ApplicationController
+  protect_from_forgery
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   # GET /posts
   def index
     @posts = Post.all
