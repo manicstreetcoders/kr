@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  protect_from_forgery
+  before_filter :autenticate_user!
+  
   def create
     @post = Post.find(params[:id])
     @comment = Comment.build_from(@post, current_user.id, params[:comment])
@@ -9,7 +12,8 @@ class CommentsController < ApplicationController
   def destroy
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-    @comment.destroy
+    if current_user.id == @comment.user_id
+      @comment.destroy
     redirect_to post_path(@post)
   end
 end
