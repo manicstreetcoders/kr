@@ -7,6 +7,7 @@
     <th>No</th>
     <th>Subject</th>
     <th>User</th>
+    <th>Date</th>
   </tr>
 
 <% @posts.each do |post| %>
@@ -14,6 +15,7 @@
     <td class='span1'><%= post.id %></td>
     <td><%= link_to post_title_with_reply_count(post), post_path(post) %></td>
     <td><%= email(post.user_id) %></td>
+    <td><%= post.created_at %></td>
   </tr>
 <% end %>
 </table>

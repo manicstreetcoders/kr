@@ -2,6 +2,7 @@
   <tr>
     <td> <%= email(comment.user_id) %> </td>
     <td> <%= comment.body %> </td>
+    <td> <%= comment.created_at %> </td>
     <td> 
       <% if current_user && comment.user_id == current_user.id %>
         <%= link_to [post, comment], :confirm => 'Are you sure?', :method => :delete do %>
