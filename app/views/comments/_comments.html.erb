@@ -1,0 +1,28 @@
+<% comments.each do |comment| %>
+  <tr>
+    <td> <%= email(comment.user_id) %> </td>
+    <td> <%= comment.body %> </td>
+    <td> 
+      <% if current_user && comment.user_id == current_user.id %>
+        <%= link_to [post, comment], :confirm => 'Are you sure?', :method => :delete do %>
+          <i class='icon-trash'></i>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+
+<% if current_user %>
+  <tr class='well form-inline'>
+    <%= form_tag('/posts/add_new_comment', :method => :post) do %>
+      <%= hidden_field_tag 'id', post.id %>
+      <td><%= email(current_user.id) %></td>
+      <td class='span6'>
+        <%= text_area_tag 'comment', '', :class => 'span6', :rows => '4' %>
+      </td>
+      <td>
+        <%= submit_tag '댓글달기' %>
+      </td>
+    <% end %>
+  </tr>
+<% end %>
